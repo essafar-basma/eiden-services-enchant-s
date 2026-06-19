@@ -2,147 +2,122 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 const SERVICES = [
-  {
-    n: "01",
-    t: "Audit & Diagnostic",
-    d: "Nous cartographions chaque faille, chaque fuite, chaque levier négligé — et vous montrons exactement où agir en premier.",
-    tags: ["Architecture KPI", "Analyse revenus", "Cartographie des écarts"],
-  },
-  {
-    n: "02",
-    t: "Architecture Stratégique",
-    d: "Pas un conseil. Un plan d'architecte. Nous construisons le cadre stratégique dans lequel toutes vos décisions s'inscrivent.",
-    tags: ["Positionnement marché", "Feuille de route", "Cadres de décision"],
-  },
-  {
-    n: "03",
-    t: "Optimisation Opérationnelle",
-    d: "Nous éliminons le gaspillage, automatisons le répétitif, et installons les systèmes qui font scaler sans épuiser vos équipes.",
-    tags: ["Processus", "Automatisation", "Qualité"],
-  },
-  {
-    n: "04",
-    t: "Technologie & IA",
-    d: "Nous identifions où la technologie crée un vrai levier — puis nous la déployons avec précision. Une opération plus intelligente, comprise par vos équipes.",
-    tags: ["Workflows IA", "Intégration", "Stack d'automatisation"],
-  },
-  {
-    n: "05",
-    t: "Marketing & Croissance",
-    d: "Nous construisons le moteur de croissance complet — positionnement, contenu, campagnes — relié à des résultats que votre DAF peut lire.",
-    tags: ["Positionnement", "Performance", "Architecture éditoriale"],
-  },
-  {
-    n: "06",
-    t: "Lead Gen & Revenue Ops",
-    d: "Nous concevons les systèmes qui remplissent votre funnel, convertissent les prospects et scalent ce qui marche.",
-    tags: ["Lead generation", "Architecture CRM", "Revenue ops"],
-  },
+  { n: "01", t: "Audit & Diagnostic", d: "Cartographie chirurgicale de votre opération. Nous identifions chaque fuite, chaque levier, chaque écart à fermer.", tags: ["KPIs", "Revenus", "Process"] },
+  { n: "02", t: "Architecture Stratégique", d: "Le cadre maître dans lequel chaque décision s'inscrit. Positionnement, feuille de route, modèle économique.", tags: ["Vision", "Roadmap"] },
+  { n: "03", t: "Optimisation Opérationnelle", d: "Nous éliminons les frictions, automatisons le répétitif et installons les systèmes qui scalent sans épuiser vos équipes.", tags: ["Process", "Automatisation"] },
+  { n: "04", t: "Génération de Leads & Achat Média", d: "Funnels mesurés, créatifs testés, campagnes qui remplissent votre pipeline avec des leads que votre commerce peut signer.", tags: ["Meta", "Google", "TikTok"] },
+  { n: "05", t: "Référencement Local & Digital", d: "Présence locale qui convertit, SEO technique et de contenu pour devenir l'évidence dans votre catégorie.", tags: ["SEO", "GMB"] },
+  { n: "06", t: "CRM · Gestion de la Relation Client", d: "Architecture CRM, séquences, automations et reporting pour transformer chaque conversation en revenu prévisible.", tags: ["HubSpot", "Sequences"] },
+  { n: "07", t: "Branding & Positionnement de Marque", d: "Identité visuelle et verbale. Pas un logo — une marque qui se reconnaît avant même d'être lue.", tags: ["Identité", "Voix", "Système"] },
+  { n: "08", t: "Développement Web", d: "Sites éditoriaux rapides, plateformes sur-mesure, expériences qui chargent en moins d'une seconde et convertissent.", tags: ["Next", "Headless"] },
 ];
 
-export function Services() {
-  const [active, setActive] = useState(0);
+export function Services({ onCommission }: { onCommission: (service?: string) => void }) {
+  const [active, setActive] = useState<number | null>(null);
 
   return (
-    <section id="services" className="relative bg-forest text-beige py-28 md:py-40 overflow-hidden grain">
-      <div className="absolute inset-0 opacity-[0.06]" style={{
-        backgroundImage: "linear-gradient(var(--beige) 1px, transparent 1px), linear-gradient(90deg, var(--beige) 1px, transparent 1px)",
-        backgroundSize: "80px 80px",
-      }} />
-
-      <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16 md:mb-24">
-          <div>
-            <div className="flex items-center gap-3 font-label text-gold text-xs">
-              <span className="h-px w-10 bg-gold" />
-              Nos services · Six disciplines
-            </div>
-            <h2 className="mt-6 font-display text-5xl md:text-7xl leading-[1.02] text-balance">
-              Ce que nous <span className="italic text-gold">architecturons.</span>
-            </h2>
+    <section id="services" className="relative bg-canvas py-24 md:py-36 overflow-hidden">
+      <div className="mx-auto max-w-[1400px] px-5 md:px-10">
+        {/* Editorial header — Swiss split */}
+        <div className="grid md:grid-cols-12 gap-8 mb-16 md:mb-24 pb-10 border-b-2 border-forest">
+          <div className="md:col-span-3 font-mono text-[10px] text-forest/70">
+            <div>SECTION 02</div>
+            <div className="mt-1">SERVICES — 08</div>
           </div>
-          <p className="max-w-md text-beige/70 leading-relaxed text-pretty">
-            Du premier diagnostic à la transformation complète — six engagements distincts, chacun conçu comme sa propre architecture.
+          <h2 className="md:col-span-6 font-display font-light text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.92] tracking-[-0.03em] text-balance">
+            Ce que nous <span className="font-display-wonk italic text-teal">architecturons</span>
+            <span className="text-mondrian-red">.</span>
+          </h2>
+          <p className="md:col-span-3 font-display text-base md:text-lg text-forest/70 leading-snug text-pretty self-end">
+            Huit engagements distincts. Chacun conçu comme sa propre architecture, tous reliés par la même logique.
           </p>
         </div>
 
-        {/* Stack rows */}
-        <div className="border-t border-beige/15">
+        {/* Service grid — modular, Swiss */}
+        <div className="grid md:grid-cols-12 gap-px bg-forest border-2 border-forest">
           {SERVICES.map((s, i) => {
             const isActive = active === i;
+            // Mondrian-style varied sizing
+            const colSpan = [4, 4, 4, 6, 3, 3, 6, 6][i] ?? 4;
             return (
               <motion.div
                 key={s.n}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6, delay: i * 0.05 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, delay: (i % 4) * 0.06, ease: [0.22,1,0.36,1] }}
                 onMouseEnter={() => setActive(i)}
-                className="group relative border-b border-beige/15 cursor-pointer"
+                onMouseLeave={() => setActive(null)}
+                className={`group relative bg-canvas p-8 md:p-10 min-h-[280px] flex flex-col cursor-pointer overflow-hidden transition-colors ${isActive ? "bg-cream" : ""}`}
+                style={{ gridColumn: `span ${colSpan} / span ${colSpan}` }}
               >
+                {/* number */}
+                <div className="flex items-start justify-between">
+                  <div className="font-mono text-xs text-forest/50">{s.n} / 08</div>
+                  <motion.span
+                    animate={{ rotate: isActive ? 45 : 0 }}
+                    className="font-display text-2xl text-forest"
+                  >+</motion.span>
+                </div>
+
+                <h3 className="mt-8 font-display font-light text-3xl md:text-4xl leading-[0.98] tracking-tight text-balance">
+                  {s.t}
+                </h3>
+
+                <motion.p
+                  initial={false}
+                  animate={{ opacity: isActive ? 1 : 0.7, height: "auto" }}
+                  className="mt-4 text-forest/70 text-sm leading-relaxed text-pretty"
+                >
+                  {s.d}
+                </motion.p>
+
+                <div className="mt-auto pt-6 flex items-end justify-between gap-4">
+                  <div className="flex flex-wrap gap-1.5">
+                    {s.tags.map((t) => (
+                      <span key={t} className="font-mono text-[9px] text-forest/60 border border-forest/20 rounded-full px-2.5 py-1">{t}</span>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => onCommission(s.t)}
+                    className="font-label text-[10px] text-forest hover:text-mondrian-red transition shrink-0"
+                  >
+                    Commander →
+                  </button>
+                </div>
+
+                {/* hover accent */}
                 <motion.div
                   initial={false}
-                  animate={{ backgroundColor: isActive ? "var(--teal)" : "rgba(0,0,0,0)" }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0"
+                  animate={{ scaleX: isActive ? 1 : 0 }}
+                  style={{ originX: 0 }}
+                  transition={{ duration: 0.4, ease: [0.22,1,0.36,1] }}
+                  className="absolute bottom-0 left-0 right-0 h-1 bg-mondrian-red"
                 />
-                <div className="relative grid grid-cols-12 gap-6 items-center py-8 md:py-10 px-2 md:px-6">
-                  <div className="col-span-2 md:col-span-1 font-label text-gold text-xs">{s.n}</div>
-                  <div className="col-span-10 md:col-span-4">
-                    <h3 className="font-display text-2xl md:text-4xl leading-tight">{s.t}</h3>
-                  </div>
-                  <div className="col-span-12 md:col-span-5 text-beige/75 leading-relaxed text-sm md:text-base">
-                    {s.d}
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {s.tags.map((t) => (
-                        <span key={t} className="font-label text-[10px] text-gold/90 border border-gold/30 rounded-full px-3 py-1">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="col-span-12 md:col-span-2 md:text-right">
-                    <a
-                      href="#contact"
-                      className="inline-flex items-center gap-2 font-label text-[11px] text-beige hover:text-gold transition-colors"
-                    >
-                      Discuter <span>→</span>
-                    </a>
-                  </div>
-                </div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* CTA card */}
+        {/* CTA bar */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-20 md:mt-28 relative overflow-hidden rounded-3xl border border-gold/30 bg-gradient-to-br from-teal/40 to-forest p-10 md:p-16"
+          className="mt-16 md:mt-20 grid md:grid-cols-12 gap-6 items-center border-t-2 border-forest pt-10"
         >
-          <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-gold/20 blur-3xl" />
-          <div className="relative grid md:grid-cols-12 gap-8 items-center">
-            <div className="md:col-span-8">
-              <p className="font-label text-gold text-xs">Chaque engagement commence par un diagnostic</p>
-              <h3 className="mt-4 font-display text-3xl md:text-5xl leading-tight text-balance">
-                Avant de prescrire, nous <span className="italic text-gold">comprenons.</span>
-              </h3>
-              <p className="mt-4 text-beige/75 max-w-xl text-pretty">
-                Réservez une session de découverte et repartez avec une image plus claire de votre entreprise — qu'on travaille ensemble ensuite, ou non.
-              </p>
-            </div>
-            <div className="md:col-span-4 md:text-right">
-              <a
-                href="#contact"
-                className="group inline-flex items-center gap-3 rounded-full bg-gold px-7 py-4 font-head text-sm font-semibold uppercase tracking-[0.18em] text-forest hover:bg-beige transition"
-              >
-                Réserver
-                <span className="transition-transform group-hover:translate-x-1">→</span>
-              </a>
-            </div>
+          <p className="md:col-span-7 font-display text-2xl md:text-3xl leading-tight text-balance">
+            Vous savez déjà ce dont vous avez besoin ? <span className="font-display-wonk italic text-teal">Démarrez une commission.</span>
+          </p>
+          <div className="md:col-span-5 md:text-right">
+            <button
+              onClick={() => onCommission()}
+              className="group inline-flex items-center gap-3 rounded-full bg-forest px-7 py-4 font-head text-sm font-medium text-canvas hover:bg-mondrian-red transition focus-ring"
+            >
+              Ouvrir le formulaire d'intake
+              <span className="grid place-items-center h-7 w-7 rounded-full bg-canvas/15 transition group-hover:bg-canvas/25">→</span>
+            </button>
           </div>
         </motion.div>
       </div>
