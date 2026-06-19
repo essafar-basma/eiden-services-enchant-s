@@ -70,9 +70,9 @@ export function Hero({ onCommission }: { onCommission: () => void }) {
         </div>
 
         {/* headline */}
-        <h1 className="font-display font-light text-[clamp(3rem,11vw,11rem)] leading-[0.86] tracking-[-0.04em] text-balance max-w-[14ch]">
-          {["L'", "architecture", " ", "d'une"].map((w, i) => (
-            <motion.span key={i} initial={{ opacity:0, y:60 }} animate={{ opacity:1, y:0 }} transition={{ delay: 0.4 + i*0.07, duration: 0.9, ease:[0.22,1,0.36,1] }} className="inline-block">{w}</motion.span>
+        <h1 className="font-display font-light text-[clamp(2.75rem,10vw,10rem)] leading-[0.88] tracking-[-0.04em] text-balance max-w-[14ch]">
+          {"L'architecture d'une".split(" ").map((w, i) => (
+            <motion.span key={i} initial={{ opacity:0, y:60 }} animate={{ opacity:1, y:0 }} transition={{ delay: 0.4 + i*0.08, duration: 0.9, ease:[0.22,1,0.36,1] }} className="inline-block mr-[0.25em]">{w}</motion.span>
           ))}
           <br />
           <motion.span initial={{ opacity:0, y:60 }} animate={{ opacity:1, y:0 }} transition={{ delay: 0.9, duration: 1 }} className="font-display-wonk italic text-teal inline-block">
