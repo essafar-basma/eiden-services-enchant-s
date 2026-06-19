@@ -1,25 +1,35 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
+import svcAudit from "@/assets/audit-2.jpg";
+import svcArch from "@/assets/strategy-2.jpg";
+import svcOps from "@/assets/op-1.jpg";
+import svcLeads from "@/assets/lead-1.jpg";
+import svcSeo from "@/assets/seo-1.jpg";
+import svcCrm from "@/assets/crm-1.jpg";
+import svcBranding from "@/assets/branding-1.jpg";
+import svcWeb from "@/assets/web-2.jpg";
+
 const SERVICES = [
-  { n: "01", t: "Audit & Diagnostic", d: "Cartographie chirurgicale de votre opération. Nous identifions chaque fuite, chaque levier, chaque écart à fermer.", tags: ["KPIs", "Revenus", "Process"] },
-  { n: "02", t: "Architecture Stratégique", d: "Le cadre maître dans lequel chaque décision s'inscrit. Positionnement, feuille de route, modèle économique.", tags: ["Vision", "Roadmap"] },
-  { n: "03", t: "Optimisation Opérationnelle", d: "Nous éliminons les frictions, automatisons le répétitif et installons les systèmes qui scalent sans épuiser vos équipes.", tags: ["Process", "Automatisation"] },
-  { n: "04", t: "Génération de Leads & Achat Média", d: "Funnels mesurés, créatifs testés, campagnes qui remplissent votre pipeline avec des leads que votre commerce peut signer.", tags: ["Meta", "Google", "TikTok"] },
-  { n: "05", t: "Référencement Local & Digital", d: "Présence locale qui convertit, SEO technique et de contenu pour devenir l'évidence dans votre catégorie.", tags: ["SEO", "GMB"] },
-  { n: "06", t: "CRM · Gestion de la Relation Client", d: "Architecture CRM, séquences, automations et reporting pour transformer chaque conversation en revenu prévisible.", tags: ["HubSpot", "Sequences"] },
-  { n: "07", t: "Branding & Positionnement de Marque", d: "Identité visuelle et verbale. Pas un logo — une marque qui se reconnaît avant même d'être lue.", tags: ["Identité", "Voix", "Système"] },
-  { n: "08", t: "Développement Web", d: "Sites éditoriaux rapides, plateformes sur-mesure, expériences qui chargent en moins d'une seconde et convertissent.", tags: ["Next", "Headless"] },
+  { n: "01", t: "Audit & Diagnostic", d: "Cartographie chirurgicale de votre opération. Nous identifions chaque fuite, chaque levier, chaque écart à fermer.", img: svcAudit },
+  { n: "02", t: "Architecture Stratégique", d: "Le cadre maître dans lequel chaque décision s'inscrit. Positionnement, feuille de route, modèle économique.",  img: svcArch },
+  { n: "03", t: "Optimisation Opérationnelle", d: "Nous éliminons les frictions, automatisons le répétitif et installons les systèmes qui scalent sans épuiser vos équipes.", img: svcOps },
+  { n: "04", t: "Génération de Leads & Achat Média", d: "Funnels mesurés, créatifs testés, campagnes qui remplissent votre pipeline avec des leads que votre commerce peut signer.", img: svcLeads },
+  { n: "05", t: "Référencement Local & Digital", d: "Présence locale qui convertit, SEO technique et de contenu pour devenir l'évidence dans votre catégorie.", img: svcSeo },
+  { n: "06", t: "CRM · Gestion de la Relation Client", d: "Architecture CRM, séquences, automations et reporting pour transformer chaque conversation en revenu prévisible.", img: svcCrm },
+  { n: "07", t: "Branding & Positionnement de Marque", d: "Identité visuelle et verbale. Pas un logo — une marque qui se reconnaît avant même d'être lue.",  img: svcBranding },
+  { n: "08", t: "Développement Web", d: "Sites éditoriaux rapides, plateformes sur-mesure, expériences qui chargent en moins d'une seconde et convertissent.", img: svcWeb },
 ];
 
 export function Services({ onCommission }: { onCommission: (service?: string) => void }) {
-  const [active, setActive] = useState<number | null>(null);
+  const [active, setActive] = useState(0);
+  const current = SERVICES[active];
 
   return (
-    <section id="services" className="relative bg-canvas py-24 md:py-36 overflow-hidden">
+    <section id="services" className="relative bg-canvas py-10 overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         {/* Editorial header — Swiss split */}
-        <div className="grid md:grid-cols-12 gap-8 mb-16 md:mb-24 pb-10 border-b-2 border-forest">
+        <div className="grid md:grid-cols-12 gap-8 mb-10 pb-10 border-b-2 border-forest">
           <div className="md:col-span-3 font-mono text-[10px] text-forest/70">
             <div>SECTION 02</div>
             <div className="mt-1">SERVICES — 08</div>
@@ -33,71 +43,96 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
           </p>
         </div>
 
-        {/* Service grid — modular, Swiss */}
-        <div className="grid md:grid-cols-12 gap-px bg-forest border-2 border-forest">
-          {SERVICES.map((s, i) => {
-            const isActive = active === i;
-            // Mondrian-style varied sizing
-            const colSpan = [4, 4, 4, 6, 3, 3, 6, 6][i] ?? 4;
-            return (
-              <motion.div
-                key={s.n}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, delay: (i % 4) * 0.06, ease: [0.22,1,0.36,1] }}
-                onMouseEnter={() => setActive(i)}
-                onMouseLeave={() => setActive(null)}
-                className={`group relative bg-canvas p-8 md:p-10 min-h-[280px] flex flex-col cursor-pointer overflow-hidden transition-colors ${isActive ? "bg-cream" : ""}`}
-                style={{ gridColumn: `span ${colSpan} / span ${colSpan}` }}
-              >
-                {/* number */}
-                <div className="flex items-start justify-between">
-                  <div className="font-mono text-xs text-forest/50">{s.n} / 08</div>
-                  <motion.span
-                    animate={{ rotate: isActive ? 45 : 0 }}
-                    className="font-display text-2xl text-forest"
-                  >+</motion.span>
-                </div>
-
-                <h3 className="mt-8 font-display font-light text-3xl md:text-4xl leading-[0.98] tracking-tight text-balance">
-                  {s.t}
-                </h3>
-
-                <motion.p
-                  initial={false}
-                  animate={{ opacity: isActive ? 1 : 0.7, height: "auto" }}
-                  className="mt-4 text-forest/70 text-sm leading-relaxed text-pretty"
+        {/* Tabs strip — horizontally scrollable pills */}
+        <div role="tablist" aria-label="Services" className="-mx-5 md:mx-0 mb-10">
+          <div className="flex gap-2 overflow-x-auto px-5 md:px-0 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {SERVICES.map((s, i) => {
+              const isActive = active === i;
+              return (
+                <button
+                  key={s.n}
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setActive(i)}
+                  className="relative shrink-0 overflow-hidden rounded-full border border-forest/20 px-4 py-2.5 transition-colors focus-ring"
                 >
-                  {s.d}
-                </motion.p>
-
-                <div className="mt-auto pt-6 flex items-end justify-between gap-4">
-                  <div className="flex flex-wrap gap-1.5">
-                    {s.tags.map((t) => (
-                      <span key={t} className="font-mono text-[9px] text-forest/60 border border-forest/20 rounded-full px-2.5 py-1">{t}</span>
-                    ))}
-                  </div>
-                  <button
-                    onClick={() => onCommission(s.t)}
-                    className="font-label text-[10px] text-forest hover:text-mondrian-red transition shrink-0"
+                  {isActive && (
+                    <motion.span
+                      layoutId="service-tab-bg"
+                      className="absolute inset-0 bg-forest"
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    />
+                  )}
+                  <span
+                    className={`relative z-10 inline-flex items-center gap-2 whitespace-nowrap font-mono text-[11px] ${
+                      isActive ? "text-canvas" : "text-forest/60 hover:text-forest"
+                    }`}
                   >
-                    Commander →
-                  </button>
-                </div>
-
-                {/* hover accent */}
-                <motion.div
-                  initial={false}
-                  animate={{ scaleX: isActive ? 1 : 0 }}
-                  style={{ originX: 0 }}
-                  transition={{ duration: 0.4, ease: [0.22,1,0.36,1] }}
-                  className="absolute bottom-0 left-0 right-0 h-1 bg-mondrian-red"
-                />
-              </motion.div>
-            );
-          })}
+                    <span className={isActive ? "text-gold" : "text-forest/35"}>{s.n}</span>
+                    {s.t}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
+
+        {/* Tab content — plate image + copy */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start"
+          >
+            <div className="relative h-100 overflow-hidden border border-forest/20 bg-cream">
+              <img src={current.img} alt={current.t} className="w-full h-full object-cover" loading="lazy" />
+              <div className="absolute top-4 left-4 right-4 flex justify-between font-mono text-[10px] uppercase tracking-[0.18em]">
+                <span className="rounded-full bg-forest/70 px-2.5 py-1 text-canvas backdrop-blur-sm">Pl. {current.n}</span>
+                <span className="rounded-full bg-forest/70 px-2.5 py-1 text-canvas backdrop-blur-sm">Eiden Group</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <div className="font-label text-[11px] text-teal">Service {current.n} / 08</div>
+
+              <h3 className="mt-4 font-display font-light text-3xl md:text-5xl leading-[1.03] tracking-tight text-balance">
+                {current.t}
+              </h3>
+
+              <p className="mt-6 text-forest/70 text-base leading-relaxed text-pretty">
+                {current.d}
+              </p>
+
+              <ul className="mt-8 space-y-2.5">
+                {["Appel découverte, sans deck", "Proposition à périmètre fixe sous 5 jours", "Points hebdomadaires éditoriaux"].map((b) => (
+                  <li key={b} className="flex items-start gap-3 text-sm text-forest/70">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-gold" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                <button
+                  onClick={() => onCommission(current.t)}
+                  className="group inline-flex items-center gap-3 rounded-full bg-forest px-6 py-3.5 font-head text-sm font-medium text-canvas transition hover:bg-mondrian-red focus-ring"
+                >
+                  Commander
+                  <span className="grid h-6 w-6 rounded-full bg-canvas/15 transition group-hover:bg-canvas/25">→</span>
+                </button>
+                <button
+                  onClick={() => setActive((active + 1) % SERVICES.length)}
+                  className="inline-flex items-center rounded-full border border-forest/25 px-6 py-3.5 font-head text-sm font-medium text-forest transition hover:border-forest hover:bg-cream focus-ring"
+                >
+                  Service suivant
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
 
         {/* CTA bar */}
         <motion.div

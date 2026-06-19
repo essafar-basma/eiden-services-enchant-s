@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Link } from "lucide-react";
 
 export function Contact({ onCommission }: { onCommission: () => void }) {
   return (
     <section id="contact" className="relative bg-forest text-canvas py-24 md:py-36 overflow-hidden grain">
       <div className="absolute inset-0 paper-grid opacity-[0.06]" />
-      <div className="absolute top-0 left-0 h-2 w-1/4 bg-mondrian-yellow" />
-      <div className="absolute top-0 left-1/4 w-2 h-1/3 bg-mondrian-red" />
+      <div className="absolute top-0 left-0 h-2 w-96 bg-mondrian-yellow md:w-1/4" />
+      <div className="absolute top-0 left-4/5 w-2 h-3/5 bg-mondrian-red md:left-1/4 md:h-1/3" />
 
       <div className="relative z-10 mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="grid md:grid-cols-12 gap-8 mb-16 pb-10 border-b-2 border-canvas/20">
@@ -25,8 +25,7 @@ export function Contact({ onCommission }: { onCommission: () => void }) {
             {[
               { I: Mail, label: "EMAIL", v: "contact@eiden-group.com", href: "mailto:contact@eiden-group.com" },
               { I: Phone, label: "MAROC", v: "+212 7 77 77 74 28", href: "tel:+212777777428" },
-              { I: Phone, label: "CANADA", v: "+1 613 706 9011", href: "tel:+16137069011" },
-              { I: MapPin, label: "BUREAU", v: "Agadir Bay · Technopole 1", href: "https://maps.app.goo.gl/e1PTQQJUb3kh7J48A" },
+              { I: Link, label: "SITE WEB", v: "www.eiden-group.com", href: "https://www.eiden-group.com" },
             ].map(({ I, label, v, href }, i) => (
               <motion.a
                 key={label}
@@ -46,6 +45,27 @@ export function Contact({ onCommission }: { onCommission: () => void }) {
                 </div>
               </motion.a>
             ))}
+
+            {/* Carte interactive */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.24 }}
+              className="rounded-2xl border border-canvas/15 overflow-hidden hover:border-gold/60 transition"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3444.123456789012!2d-9.598888888888888!3d30.420555555555556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDI1JzE0LjAiTiA5wrAzNSc1Ni4wIlc!5e0!3m2!1sfr!2sma!4v1712345678901"
+                width="100%"
+                height="200"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="bg-canvas/5"
+                title="Plan d'accès Eiden Group - Agadir Bay · Technopole 1"
+              />
+            </motion.div>
           </div>
 
           {/* Big CTA card */}

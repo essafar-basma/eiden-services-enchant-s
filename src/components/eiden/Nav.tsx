@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import icon from "@/assets/eiden-icon.png.asset.json";
+import icon from "@/assets/logo-1.png";
 
 export function Nav({ onCommission }: { onCommission: () => void }) {
   const { scrollY } = useScroll();
@@ -15,7 +15,7 @@ export function Nav({ onCommission }: { onCommission: () => void }) {
       <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-4 flex items-center justify-between">
         <a href="#hero" className="flex items-center gap-2.5 group">
           <span className="grid place-items-center h-9 w-9 rounded-md bg-forest">
-            <img src={icon.url} alt="" className="h-6 w-6" style={{ filter: "brightness(0) invert(0.93) sepia(0.3) saturate(2)" }} />
+            <img src={icon} alt="" className="h-6 w-6" style={{ filter: "brightness(0) invert(0.93) sepia(0.3) saturate(2)" }} />
           </span>
           <div className="hidden sm:flex flex-col leading-none">
             <span className="font-display text-lg text-forest tracking-tight">EIDEN<span className="text-mondrian-red">.</span></span>

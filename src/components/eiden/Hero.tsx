@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import icon from "@/assets/eiden-icon.png.asset.json";
+import iconLogo from "@/assets/icon.png";
+import logo from "@/assets/logo-1.png";
 
 export function Hero({ onCommission }: { onCommission: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -8,11 +9,7 @@ export function Hero({ onCommission }: { onCommission: () => void }) {
   const y = useTransform(scrollYProgress, [0, 1], [0, 140]);
 
   return (
-    <section
-      id="hero"
-      ref={ref}
-      className="relative min-h-screen bg-canvas text-forest overflow-hidden pt-24"
-    >
+    <section id="hero" ref={ref} className="relative min-h-screen bg-canvas text-forest overflow-hidden" >
       {/* Mondrian composition */}
       <div className="absolute inset-0 paper-grid opacity-70" />
 
@@ -20,42 +17,42 @@ export function Hero({ onCommission }: { onCommission: () => void }) {
       <motion.div
         initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.1, ease: [0.22,1,0.36,1], delay: 0.2 }}
         style={{ originY: 0 }}
-        className="absolute top-0 right-0 h-[42vh] w-[18vw] bg-mondrian-yellow hidden md:block"
+        className="absolute top-0 right-0 h-[32vh] w-[18vw] bg-mondrian-yellow md:height[42vh]"
       />
       <motion.div
         initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.1, ease: [0.22,1,0.36,1], delay: 0.5 }}
         style={{ originX: 0 }}
-        className="absolute bottom-0 left-0 h-[28vh] w-[34vw] bg-forest hidden md:block"
+        className="absolute bottom-0 left-0 h-[20vh] w-[45vw] bg-forest md:height[28vh]"
       />
       <motion.div
         initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.9, ease: [0.22,1,0.36,1], delay: 0.8 }}
         style={{ originX: 1 }}
-        className="absolute bottom-0 right-0 h-[14vh] w-[22vw] bg-mondrian-red hidden md:block"
+        className="absolute bottom-0 right-0 h-[14vh] w-[22vw] bg-mondrian-red md:block"
       />
 
       {/* rules (Mondrian black lines) */}
       <motion.div
         initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.2, delay: 0.1 }}
         style={{ originX: 0 }}
-        className="absolute top-[42vh] inset-x-0 h-[3px] mondrian-rule hidden md:block"
+        className="absolute top-[32vh] inset-x-0 h-[1px] mondrian-rule md:top[24vh] md:height[3vh]"
       />
       <motion.div
         initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.2, delay: 0.15 }}
         style={{ originY: 0 }}
-        className="absolute top-0 bottom-0 right-[18vw] w-[3px] mondrian-rule hidden md:block"
+        className="absolute top-0 bottom-0 right-[18vw] w-[2px] mondrian-rule md:width[3vh]"
       />
       <motion.div
         initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.2, delay: 0.35 }}
         style={{ originY: 0 }}
-        className="absolute bottom-0 top-[42vh] left-[34vw] w-[3px] mondrian-rule hidden md:block"
+        className="absolute bottom-0 top-[32vh] left-[34vw] w-[2px] mondrian-rule md:top[24vh] md:width[3vh]"
       />
 
-      <motion.div style={{ y }} className="relative z-10 mx-auto max-w-[1400px] px-5 md:px-10 pt-16 md:pt-20 pb-32 min-h-[calc(100vh-6rem)] flex flex-col">
+      <motion.div style={{ y }} className="relative z-10 mx-auto max-w-[1400px] px-5 md:px-10 pt-5 md:pt-10 pb-32 min-h-[calc(100vh-6rem)] flex flex-col">
+        
         {/* top meta row — Swiss */}
         <div className="flex items-start justify-between gap-6 mb-12 md:mb-20">
           <div className="font-mono text-[10px] md:text-xs text-forest/70 leading-relaxed">
-            <div>№ 001 · ÉDITION 2026</div>
-            <div className="mt-1">CASABLANCA / AGADIR / MTL</div>
+            <img src={logo} alt="Eiden Group" className="h-7 md:h-8 w-auto" />
           </div>
           <div className="font-mono text-[10px] md:text-xs text-forest/70 text-right">
             <div>EIDEN — SERVICES</div>
@@ -83,35 +80,23 @@ export function Hero({ onCommission }: { onCommission: () => void }) {
 
         {/* deck row */}
         <div className="mt-auto pt-16 grid md:grid-cols-12 gap-8 items-end">
-          <motion.p
-            initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay: 1.4, duration:0.8 }}
-            className="md:col-span-5 font-display text-xl md:text-2xl leading-[1.35] text-forest/80 text-pretty"
-          >
+          <motion.p initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay: 1.4, duration:0.8 }} className="md:col-span-5 font-display text-xl md:text-2xl leading-[1.35] text-gold">
             Huit disciplines. Une seule structure. Nous dessinons le système qui transforme votre activité en architecture qui dure.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay: 1.55, duration:0.8 }}
-            className="md:col-span-4 md:col-start-7 flex flex-col gap-3"
-          >
-            <button
-              onClick={onCommission}
-              className="group inline-flex items-center justify-between gap-3 rounded-full bg-forest px-7 py-4 font-head text-sm font-medium text-canvas hover:bg-teal transition focus-ring"
-            >
+          <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay: 1.55, duration:0.8 }} className="md:col-span-4 md:col-start-7 flex flex-col gap-3">
+            <button onClick={onCommission} className="group inline-flex items-center justify-between gap-3 rounded-full bg-forest px-7 py-4 font-head text-sm font-medium text-canvas hover:bg-teal transition focus-ring">
               <span>Démarrer une commission</span>
               <span className="grid place-items-center h-7 w-7 rounded-full bg-canvas/15 group-hover:bg-canvas/25 transition">→</span>
             </button>
-            <a href="#services" className="inline-flex items-center justify-between font-label text-[10px] text-forest/70 hover:text-forest transition border-b border-forest/30 pb-2">
+            <a href="#services" className="inline-flex items-center justify-between font-label text-[10px] text-teal-lt hover:text-forest transition border-b border-teal-lt pb-2">
               <span>Parcourir les 8 services</span>
               <span>↓</span>
             </a>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay: 1.8, duration:1 }}
-            className="md:col-span-2 md:col-start-11 hidden md:flex flex-col items-end gap-2 font-mono text-[10px] text-forest/60"
-          >
-            <img src={icon.url} alt="" className="h-12 w-12 opacity-50 drift" style={{ filter: "brightness(0.3) sepia(0.6)" }} />
+          <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay: 1.8, duration:1 }} className="md:col-span-2 md:col-start-11 hidden md:flex flex-col items-end gap-2 font-mono text-[10px] text-forest/60">
+            <img src={iconLogo} alt="" className="h-12 w-12 opacity-50 drift" style={{ filter: "brightness(0.3) sepia(0.6)" }} />
             <div className="text-right leading-relaxed">
               fig.01<br />composition<br />liminaire
             </div>

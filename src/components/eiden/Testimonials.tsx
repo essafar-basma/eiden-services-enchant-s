@@ -1,88 +1,129 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import logoAllAccor from "@/assets/All Accor.png";
+import logoBoPassage from "@/assets/bopassage.png";
+import logoChillOut from "@/assets/chill-out.png";
+import logoDmc from "@/assets/dmc.png";
+import logoEducazenKids from "@/assets/educazenkids.png";
+import logoLunjaVillage from "@/assets/lunja-village.png";
+import logoMedicalBay from "@/assets/medical-bay.png";
 
 const TESTIMONIALS = [
-  {
-    q: "EIDEN n'a pas livré un deck — ils ont livré un système qui tourne sans eux. Six mois plus tard, l'opération scale toujours sur la même architecture.",
-    n: "Yassine B.", r: "CEO · Hospitalité, Agadir", c: "bg-forest text-canvas",
-  },
-  {
-    q: "Personne n'a regardé notre business avec cette rigueur. Le diagnostic seul a payé l'engagement entier.",
-    n: "Sophia M.", r: "Directrice générale · DMC", c: "bg-mondrian-yellow text-forest",
-  },
-  {
-    q: "Marque, marketing et ops alignés sur une seule logique. Coût d'acquisition −38 % en un trimestre.",
-    n: "Karim L.", r: "Fondateur · E-commerce", c: "bg-canvas text-forest border border-forest/15",
-  },
+  { q: "EIDEN n'a pas livré un deck — ils ont livré un système qui tourne sans eux. Six mois plus tard, l'opération scale toujours sur la même architecture.", n: "Yassine B.", r: "CEO · Hospitalité, Agadir", c: "bg-forest text-canvas", },
+  { q: "Personne n'a regardé notre business avec cette rigueur. Le diagnostic seul a payé l'engagement entier.", n: "Sophia M.", r: "Directrice générale · DMC", c: "bg-mondrian-yellow text-forest", },
+  { q: "Marque, marketing et ops alignés sur une seule logique. Coût d'acquisition −38 % en un trimestre.", n: "Karim L.", r: "Fondateur · E-commerce", c: "bg-canvas text-forest border border-forest/15", },
 ];
 
-const LOGOS = ["LUNJA", "DMC", "BO PASSAGE", "ATLAS LAB", "MAISON 21", "NORTH FOLIO"];
+const BRAND_LOGOS = [
+  { name: "All Accor", src: logoAllAccor },
+  { name: "Bô Passage Café & More", src: logoBoPassage },
+  { name: "Chill Out Bar & Lounge", src: logoChillOut },
+  { name: "DMC Hospitality Morocco", src: logoDmc },
+  { name: "EducazenKids", src: logoEducazenKids },
+  { name: "Lunja Village Resort", src: logoLunjaVillage },
+  { name: "Medical Bay", src: logoMedicalBay },
+];
 
 export function Testimonials({ onCommission }: { onCommission: () => void }) {
+  const [tIndex, setTIndex] = useState(0);
+
+  // autoplay
+  useEffect(() => {
+    const id = setInterval(() => setTIndex((i) => (i + 1) % TESTIMONIALS.length), 6500);
+    return () => clearInterval(id);
+  }, []);
+
   return (
-    <section id="testimonials" className="relative bg-beige py-24 md:py-36 overflow-hidden">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <div className="grid md:grid-cols-12 gap-8 mb-16 pb-10 border-b-2 border-forest">
-          <div className="md:col-span-3 font-mono text-[10px] text-forest/70">
-            <div>SECTION 03</div>
-            <div className="mt-1">TÉMOIGNAGES</div>
+    <section id="testimonials" className="relative bg-forest text-cream py-16 overflow-hidden">
+      <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
+
+        {/* Title + Slider side‑by‑side */}
+        <div className="grid md:grid-cols-12 gap-6 md:gap-10 items-start">
+
+          {/* Left column – Title */}
+          <div className="md:col-span-5">
+            <div className="font-mono text-[10px] text-gold mb-4">SECTION 03 · TÉMOIGNAGES</div>
+            <h2 className="font-display font-light text-[clamp(2.25rem,5.5vw,5rem)] leading-[0.95] tracking-[-0.03em] text-balance">
+              Les fondateurs qui nous ont fait <span className="font-display-wonk italic text-gold">confiance</span>
+              <span className="text-mondrian-red">.</span>
+            </h2>
           </div>
-          <h2 className="md:col-span-9 font-display font-light text-[clamp(2.25rem,5.5vw,5rem)] leading-[0.95] tracking-[-0.03em] text-balance">
-            Les fondateurs qui nous ont fait <span className="font-display-wonk italic text-teal">confiance</span>
-            <span className="text-mondrian-red">.</span>
-          </h2>
+
+          {/* Right column – Controls + Slider */}
+          <div className="md:col-span-7">
+            {/* Navigation buttons – aligned right */}
+            <div className="flex justify-end gap-2 mb-6">
+              <button aria-label="Témoignage précédent" onClick={() => setTIndex((i) => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)} className="h-10 w-10 grid place-items-center rounded-full border border-cream/30 text-cream transition hover:border-cream hover:bg-cream/10 focus-ring" >
+                ←
+              </button>
+              <button aria-label="Témoignage suivant" onClick={() => setTIndex((i) => (i + 1) % TESTIMONIALS.length)} className="h-10 w-10 grid place-items-center rounded-full border border-cream/30 text-cream transition hover:border-cream hover:bg-cream/10 focus-ring" >
+                →
+              </button>
+            </div>
+
+            {/* Carousel */}
+            <div className="relative overflow-hidden">
+              <div className="flex transition-transform duration-700 ease-[cubic-bezier(.2,.7,.2,1)]" style={{ transform: `translateX(-${tIndex * 100}%)` }} >
+                {TESTIMONIALS.map((t, i) => (
+                  <div key={i} className="shrink-0 w-full flex flex-row items-start gap-3 md:grid md:grid-cols-12 md:gap-10">
+                    {/* Quote mark – smaller on mobile, beside the text */}
+                    <div className="md:col-span-2 font-display text-5xl md:text-9xl leading-none text-gold/30">
+                      "
+                    </div>
+                    {/* Quote text – takes remaining space */}
+                    <div className="flex-1 md:col-span-10">
+                      <blockquote className="font-display text-base sm:text-xl md:text-3xl lg:text-[38px] leading-[1.25] tracking-[-0.01em] text-pretty break-words">
+                        {t.q}
+                      </blockquote>
+                      <div className="mt-8 flex items-center gap-4">
+                        <div className="h-10 w-10 rounded-full grid place-items-center bg-gold text-forest font-mono text-xs">
+                          {t.n[0]}
+                        </div>
+                        <div>
+                          <div className="font-head text-sm font-medium">{t.n}</div>
+                          <div className="font-mono text-[11px] tracking-[0.14em] uppercase text-cream/70">{t.r}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Progress dots */}
+            <div className="mt-10 flex gap-2">
+              {TESTIMONIALS.map((_, i) => (
+                <button key={i} aria-label={`Témoignage ${i + 1}`} onClick={() => setTIndex(i)} className={`h-0.5 rounded-full transition-all ${ i === tIndex ? "w-12 bg-gold" : "w-[18px] bg-cream/30" }`} />
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-12 gap-4">
-          {TESTIMONIALS.map((t, i) => (
-            <motion.figure
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22,1,0.36,1] }}
-              className={`md:col-span-4 rounded-2xl p-8 md:p-10 flex flex-col min-h-[340px] ${t.c}`}
-            >
-              <div className="font-display text-6xl leading-none opacity-30">"</div>
-              <blockquote className="-mt-4 font-display text-xl md:text-2xl leading-snug text-pretty">
-                {t.q}
-              </blockquote>
-              <figcaption className="mt-auto pt-8 flex items-center gap-3 border-t border-current/15">
-                <div className="h-9 w-9 rounded-full bg-current/15 grid place-items-center font-display font-semibold">
-                  {t.n[0]}
-                </div>
-                <div>
-                  <div className="font-head text-sm font-semibold">{t.n}</div>
-                  <div className="font-mono text-[10px] opacity-70">{t.r}</div>
-                </div>
-              </figcaption>
-            </motion.figure>
-          ))}
-        </div>
-
-        {/* logo strip */}
-        <motion.div
-          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1 }}
-          className="mt-20 pt-10 border-t border-forest/15"
-        >
-          <p className="font-mono text-[10px] text-forest/60 mb-6">ARCHITECTURES BÂTIES POUR</p>
-          <div className="flex flex-wrap gap-x-10 gap-y-4 font-display text-2xl md:text-3xl text-forest/40">
-            {LOGOS.map((l) => <span key={l} className="hover:text-forest transition">{l}</span>)}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-          className="mt-20 text-center"
-        >
-          <button
-            onClick={onCommission}
-            className="group inline-flex items-center gap-3 rounded-full bg-forest text-canvas px-7 py-4 font-head text-sm font-medium hover:bg-mondrian-red transition focus-ring"
-          >
+        {/* CTA */}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="mt-20 text-center" >
+          <button onClick={onCommission} className="group inline-flex items-center gap-3 rounded-full bg-gold text-forest px-7 py-4 font-head text-sm font-medium transition hover:bg-mondrian-red hover:text-canvas focus-ring">
             Rejoindre cette liste
-            <span className="grid place-items-center h-7 w-7 rounded-full bg-canvas/15 group-hover:bg-canvas/25 transition">→</span>
+            <span className="grid place-items-center h-7 w-7 rounded-full bg-forest/15 transition group-hover:bg-canvas/25">→</span>
           </button>
         </motion.div>
+
+        {/* Brand strip marquee */}
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1 }} className="pt-10" >
+          <div className="-mx-5 md:-mx-10">
+            <div className="overflow-hidde">
+              <div className="marquee-track flex items-center md:gap-8 px-5 md:px-10 will-change-transform">
+                {[...BRAND_LOGOS, ...BRAND_LOGOS].map((logo, i) => (
+                  <div key={i} className="shrink-0 w-28 h-28 md:w-35 md:h-35 flex items-center justify-center">
+                    <img src={logo.src} alt={logo.name} className="max-h-full max-w-full object-contain" style={{ filter: "brightness(0) invert(1)" }} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
+      
+        
     </section>
   );
 }

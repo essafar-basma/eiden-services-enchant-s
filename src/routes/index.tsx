@@ -13,9 +13,9 @@ import { ChatWidget } from "@/components/eiden/ChatWidget";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "EIDEN Services — Architectes de croissance · Audit, Stratégie, Branding, Web" },
+      { title: "EIDEN Services | Architectes de croissance · Audit, Stratégie, Branding, Web" },
       { name: "description", content: "EIDEN Group conçoit l'architecture qui fait grandir votre entreprise. Huit disciplines, une commission : audit, stratégie, leads, SEO, CRM, branding, web." },
-      { property: "og:title", content: "EIDEN Services — Architectes de croissance" },
+      { property: "og:title", content: "EIDEN Services | Architectes de croissance" },
       { property: "og:description", content: "Huit disciplines. Une architecture. Démarrez une commission." },
       { property: "og:url", content: "/" },
     ],
@@ -32,9 +32,10 @@ function Index() {
 
   return (
     <main className="bg-canvas text-forest font-body">
-      <Nav onCommission={() => start()} />
+      {/* <Nav onCommission={() => start()} /> */}
+      {/* <NavBottom onCommission={() => start()} /> */}
       <Hero onCommission={() => start()} />
-      <About onCommission={() => start()} />
+      {/* <About onCommission={() => start()} /> */}
       <Services onCommission={start} />
       <Testimonials onCommission={() => start()} />
       <Contact onCommission={() => start()} />
