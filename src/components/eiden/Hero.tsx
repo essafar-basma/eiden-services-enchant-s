@@ -2,136 +2,122 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import icon from "@/assets/eiden-icon.png.asset.json";
 
-const WORDS = ["Architectes.", "Stratèges.", "Bâtisseurs."];
-
-export function Hero() {
+export function Hero({ onCommission }: { onCommission: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 140]);
 
   return (
     <section
       id="hero"
       ref={ref}
-      className="relative min-h-screen overflow-hidden hero-gradient grain text-beige"
+      className="relative min-h-screen bg-canvas text-forest overflow-hidden pt-24"
     >
-      {/* floating icon */}
+      {/* Mondrian composition */}
+      <div className="absolute inset-0 paper-grid opacity-70" />
+
+      {/* color blocks */}
       <motion.div
-        style={{ y, opacity, scale }}
-        className="absolute inset-0 flex items-center justify-center pointer-events-none"
-      >
-        <motion.img
-          src={icon.url}
-          alt=""
-          aria-hidden
-          initial={{ rotate: -8, opacity: 0 }}
-          animate={{ rotate: 0, opacity: 0.08 }}
-          transition={{ duration: 2, ease: "easeOut" }}
-          className="w-[80vmin] max-w-[820px]"
-        />
-      </motion.div>
+        initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.1, ease: [0.22,1,0.36,1], delay: 0.2 }}
+        style={{ originY: 0 }}
+        className="absolute top-0 right-0 h-[42vh] w-[18vw] bg-mondrian-yellow hidden md:block"
+      />
+      <motion.div
+        initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.1, ease: [0.22,1,0.36,1], delay: 0.5 }}
+        style={{ originX: 0 }}
+        className="absolute bottom-0 left-0 h-[28vh] w-[34vw] bg-forest hidden md:block"
+      />
+      <motion.div
+        initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.9, ease: [0.22,1,0.36,1], delay: 0.8 }}
+        style={{ originX: 1 }}
+        className="absolute bottom-0 right-0 h-[14vh] w-[22vw] bg-mondrian-red hidden md:block"
+      />
 
-      {/* radial soft light */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full bg-teal-lt/20 blur-[140px]" />
+      {/* rules (Mondrian black lines) */}
+      <motion.div
+        initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.2, delay: 0.1 }}
+        style={{ originX: 0 }}
+        className="absolute top-[42vh] inset-x-0 h-[3px] mondrian-rule hidden md:block"
+      />
+      <motion.div
+        initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.2, delay: 0.15 }}
+        style={{ originY: 0 }}
+        className="absolute top-0 bottom-0 right-[18vw] w-[3px] mondrian-rule hidden md:block"
+      />
+      <motion.div
+        initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.2, delay: 0.35 }}
+        style={{ originY: 0 }}
+        className="absolute bottom-0 top-[42vh] left-[34vw] w-[3px] mondrian-rule hidden md:block"
+      />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-10 pt-40 md:pt-48 pb-24 min-h-screen flex flex-col justify-between">
-        {/* eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="flex items-center gap-3 font-label text-gold text-xs"
-        >
-          <span className="h-px w-10 bg-gold" />
-          EIDEN Group · Casablanca / Agadir
-        </motion.div>
+      <motion.div style={{ y }} className="relative z-10 mx-auto max-w-[1400px] px-5 md:px-10 pt-16 md:pt-20 pb-32 min-h-[calc(100vh-6rem)] flex flex-col">
+        {/* top meta row — Swiss */}
+        <div className="flex items-start justify-between gap-6 mb-12 md:mb-20">
+          <div className="font-mono text-[10px] md:text-xs text-forest/70 leading-relaxed">
+            <div>№ 001 · ÉDITION 2026</div>
+            <div className="mt-1">CASABLANCA / AGADIR / MTL</div>
+          </div>
+          <div className="font-mono text-[10px] md:text-xs text-forest/70 text-right">
+            <div>EIDEN — SERVICES</div>
+            <div className="mt-1 flex items-center justify-end gap-1.5">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-mondrian-red opacity-60 animate-ping" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-mondrian-red" />
+              </span>
+              EN COMMISSION
+            </div>
+          </div>
+        </div>
 
         {/* headline */}
-        <div className="mt-10 md:mt-0">
-          <h1 className="font-display text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.95] tracking-tight text-balance">
-            {["Nous", "ne", "vendons", "pas", "des", "services.", ""].map((w, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 60 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + i * 0.08, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                className="inline-block mr-[0.25em]"
-              >
-                {w}
-              </motion.span>
-            ))}
-            <br />
-            <motion.span
-              initial={{ opacity: 0, y: 60 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="italic text-gold inline-block"
-            >
-              Nous construisons des architectures.
-            </motion.span>
-          </h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.6, duration: 0.8 }}
-            className="mt-8 max-w-xl text-beige/75 text-lg leading-relaxed text-pretty"
-          >
-            Du premier diagnostic à la transformation complète — six disciplines, une seule
-            architecture conçue pour faire de votre croissance une <em className="text-gold not-italic">conséquence</em>, pas un objectif.
-          </motion.p>
-        </div>
-
-        {/* CTAs + ticker */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.9, duration: 0.8 }}
-          className="mt-14 flex flex-col md:flex-row md:items-end md:justify-between gap-10"
-        >
-          <div className="flex flex-wrap items-center gap-4">
-            <a
-              href="#contact"
-              className="group inline-flex items-center gap-3 rounded-full bg-gold px-7 py-4 font-head text-sm font-semibold uppercase tracking-[0.18em] text-forest transition hover:bg-beige"
-            >
-              Réserver un diagnostic
-              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-            </a>
-            <a
-              href="#services"
-              className="inline-flex items-center gap-2 font-label text-beige text-xs hover:text-gold transition-colors"
-            >
-              Voir les six disciplines
-            </a>
-          </div>
-
-          <div className="flex items-center gap-3 font-label text-[11px] text-beige/60">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-60 animate-ping" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
-            </span>
-            Disponible pour 3 nouveaux engagements · 2026
-          </div>
-        </motion.div>
-      </div>
-
-      {/* bottom marquee */}
-      <div className="relative z-10 border-t border-beige/10 overflow-hidden">
-        <div className="marquee-track flex whitespace-nowrap py-5 font-display text-2xl md:text-3xl text-beige/40 italic">
-          {[...Array(2)].map((_, k) => (
-            <div key={k} className="flex shrink-0 items-center">
-              {WORDS.concat(WORDS, WORDS).map((w, i) => (
-                <span key={i} className="mx-8 flex items-center gap-8">
-                  {w}
-                  <span className="text-gold not-italic">✦</span>
-                </span>
-              ))}
-            </div>
+        <h1 className="font-display font-light text-[clamp(2.75rem,10vw,10rem)] leading-[0.88] tracking-[-0.04em] text-balance max-w-[14ch]">
+          {"L'architecture d'une".split(" ").map((w, i) => (
+            <motion.span key={i} initial={{ opacity:0, y:60 }} animate={{ opacity:1, y:0 }} transition={{ delay: 0.4 + i*0.08, duration: 0.9, ease:[0.22,1,0.36,1] }} className="inline-block mr-[0.25em]">{w}</motion.span>
           ))}
+          <br />
+          <motion.span initial={{ opacity:0, y:60 }} animate={{ opacity:1, y:0 }} transition={{ delay: 0.9, duration: 1 }} className="font-display-wonk italic text-teal inline-block">
+            entreprise
+          </motion.span>
+          <motion.span initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay: 1.3 }} className="text-mondrian-red">.</motion.span>
+        </h1>
+
+        {/* deck row */}
+        <div className="mt-auto pt-16 grid md:grid-cols-12 gap-8 items-end">
+          <motion.p
+            initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay: 1.4, duration:0.8 }}
+            className="md:col-span-5 font-display text-xl md:text-2xl leading-[1.35] text-forest/80 text-pretty"
+          >
+            Huit disciplines. Une seule structure. Nous dessinons le système qui transforme votre activité en architecture qui dure.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay: 1.55, duration:0.8 }}
+            className="md:col-span-4 md:col-start-7 flex flex-col gap-3"
+          >
+            <button
+              onClick={onCommission}
+              className="group inline-flex items-center justify-between gap-3 rounded-full bg-forest px-7 py-4 font-head text-sm font-medium text-canvas hover:bg-teal transition focus-ring"
+            >
+              <span>Démarrer une commission</span>
+              <span className="grid place-items-center h-7 w-7 rounded-full bg-canvas/15 group-hover:bg-canvas/25 transition">→</span>
+            </button>
+            <a href="#services" className="inline-flex items-center justify-between font-label text-[10px] text-forest/70 hover:text-forest transition border-b border-forest/30 pb-2">
+              <span>Parcourir les 8 services</span>
+              <span>↓</span>
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay: 1.8, duration:1 }}
+            className="md:col-span-2 md:col-start-11 hidden md:flex flex-col items-end gap-2 font-mono text-[10px] text-forest/60"
+          >
+            <img src={icon.url} alt="" className="h-12 w-12 opacity-50 drift" style={{ filter: "brightness(0.3) sepia(0.6)" }} />
+            <div className="text-right leading-relaxed">
+              fig.01<br />composition<br />liminaire
+            </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
