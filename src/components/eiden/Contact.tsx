@@ -15,7 +15,7 @@ export function Contact({ onCommission }: { onCommission: () => void }) {
             <div className="mt-1">CONTACT</div>
           </div>
           <h2 className="md:col-span-9 font-display font-light text-[clamp(2.5rem,6vw,6rem)] leading-[0.92] tracking-[-0.03em] text-balance">
-            Parlons de votre <span className="font-display-wonk italic text-gold">projet</span>
+            30 minutes pour voir où votre activité <span className="font-display-wonk italic text-gold">fuit</span>
             <span className="text-mondrian-red">.</span>
           </h2>
         </div>
@@ -74,16 +74,16 @@ export function Contact({ onCommission }: { onCommission: () => void }) {
             className="md:col-span-7 rounded-3xl bg-canvas text-forest p-10 md:p-14 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 h-full w-2 bg-mondrian-red" />
-            <div className="font-mono text-[10px] text-forest/60 mb-4">FORMULAIRE PRINCIPAL</div>
+            <div className="font-mono text-[10px] text-forest/60 mb-4">APPEL DÉCOUVERTE · GRATUIT</div>
             <h3 className="font-display font-light text-4xl md:text-5xl leading-[0.95] tracking-tight text-balance">
-              Ouvrez une <span className="font-display-wonk italic text-teal">commission</span>.
+              Réservez votre <span className="font-display-wonk italic text-teal">appel</span>.
             </h3>
             <p className="mt-5 text-forest/70 max-w-md leading-relaxed">
-              Trois étapes. Deux minutes. Une réponse personnelle d'un associé sous 24 heures ouvrables.
+              30 minutes. Sans deck. Sans pitch. Un associé EIDEN lit chaque brief personnellement et répond sous 24 heures.
             </p>
 
             <ul className="mt-8 space-y-2 text-sm text-forest/70">
-              {["Choisissez vos disciplines","Définissez budget et horizon","Envoyez votre brief"].map((s, i) => (
+              {["Vous remplissez un brief court (2 min)","Un associé vous répond sous 24 h","Vous repartez avec une carte claire des fuites — que vous nous engagiez ou non"].map((s, i) => (
                 <li key={s} className="flex items-center gap-3">
                   <span className="grid place-items-center h-5 w-5 rounded-full bg-forest text-canvas font-mono text-[10px]">{i+1}</span>
                   {s}
@@ -95,7 +95,7 @@ export function Contact({ onCommission }: { onCommission: () => void }) {
               onClick={onCommission}
               className="group mt-10 inline-flex items-center gap-3 rounded-full bg-forest text-canvas px-7 py-4 font-head text-sm font-medium hover:bg-mondrian-red transition focus-ring"
             >
-              Démarrer maintenant
+              Réserver mon appel gratuit
               <span className="grid place-items-center h-7 w-7 rounded-full bg-canvas/15 group-hover:bg-canvas/25 transition">→</span>
             </button>
           </motion.div>

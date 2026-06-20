@@ -9,9 +9,9 @@ import logoLunjaVillage from "@/assets/lunja-village.png";
 import logoMedicalBay from "@/assets/medical-bay.png";
 
 const TESTIMONIALS = [
-  { q: "EIDEN n'a pas livré un deck — ils ont livré un système qui tourne sans eux. Six mois plus tard, l'opération scale toujours sur la même architecture.", n: "Yassine B.", r: "CEO · Hospitalité, Agadir", c: "bg-forest text-canvas", },
-  { q: "Personne n'a regardé notre business avec cette rigueur. Le diagnostic seul a payé l'engagement entier.", n: "Sophia M.", r: "Directrice générale · DMC", c: "bg-mondrian-yellow text-forest", },
-  { q: "Marque, marketing et ops alignés sur une seule logique. Coût d'acquisition −38 % en un trimestre.", n: "Karim L.", r: "Fondateur · E-commerce", c: "bg-canvas text-forest border border-forest/15", },
+  { q: "EIDEN n'a pas livré une stratégie ; ils ont reconstruit le système qui fait tourner nos opérations. Six mois plus tard, nous gérons 35 % de charge en plus avec la même équipe. Ce n'est pas du conseil. C'est de l'architecture.", n: "Amine El Idrissi", r: "Directeur Général", c: "bg-forest text-canvas", },
+  { q: "Personne n'a regardé notre activité avec cette rigueur. Le diagnostic seul a payé l'engagement entier.", n: "Sophia M.", r: "Directrice générale · DMC", c: "bg-mondrian-yellow text-forest", },
+  { q: "Marque, marketing et opérations alignés sur une seule logique. Coût d'acquisition −38 % en un trimestre.", n: "Karim L.", r: "Fondateur · E-commerce", c: "bg-canvas text-forest border border-forest/15", },
 ];
 
 const BRAND_LOGOS = [
@@ -44,7 +44,7 @@ export function Testimonials({ onCommission }: { onCommission: () => void }) {
           <div className="md:col-span-5">
             <div className="font-mono text-[10px] text-gold mb-4">SECTION 03 · TÉMOIGNAGES</div>
             <h2 className="font-display font-light text-[clamp(2.25rem,5.5vw,5rem)] leading-[0.95] tracking-[-0.03em] text-balance">
-              Les fondateurs qui nous ont fait <span className="font-display-wonk italic text-gold">confiance</span>
+              Les fondateurs qui ont reconstruit leur structure avec <span className="font-display-wonk italic text-gold">EIDEN</span>
               <span className="text-mondrian-red">.</span>
             </h2>
           </div>
@@ -102,7 +102,7 @@ export function Testimonials({ onCommission }: { onCommission: () => void }) {
         {/* CTA */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="mt-20 text-center" >
           <button onClick={onCommission} className="group inline-flex items-center gap-3 rounded-full bg-gold text-forest px-7 py-4 font-head text-sm font-medium transition hover:bg-mondrian-red hover:text-canvas focus-ring">
-            Rejoindre cette liste
+            Réserver mon appel gratuit
             <span className="grid place-items-center h-7 w-7 rounded-full bg-forest/15 transition group-hover:bg-canvas/25">→</span>
           </button>
         </motion.div>

@@ -35,11 +35,11 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
             <div className="mt-1">SERVICES — 08</div>
           </div>
           <h2 className="md:col-span-6 font-display font-light text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.92] tracking-[-0.03em] text-balance">
-            Ce que nous <span className="font-display-wonk italic text-teal">architecturons</span>
+            Là où votre activité <span className="font-display-wonk italic text-teal">se fissure</span>
             <span className="text-mondrian-red">.</span>
           </h2>
           <p className="md:col-span-3 font-display text-base md:text-lg text-forest/70 leading-snug text-pretty self-end">
-            Huit engagements distincts. Chacun conçu comme sa propre architecture, tous reliés par la même logique.
+            Huit disciplines. Une seule architecture. Chaque engagement conçu pour fermer une fuite précise — et tenir dans le temps.
           </p>
         </div>
 
@@ -107,7 +107,7 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
               </p>
 
               <ul className="mt-8 space-y-2.5">
-                {["Appel découverte, sans deck", "Proposition à périmètre fixe sous 5 jours", "Points hebdomadaires éditoriaux"].map((b) => (
+                {["Appel découverte de 30 min, sans deck", "Réponse personnelle d'un associé sous 24 h", "Diagnostic clair — que vous nous engagiez ou non"].map((b) => (
                   <li key={b} className="flex items-start gap-3 text-sm text-forest/70">
                     <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-gold" />
                     {b}
@@ -120,7 +120,7 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
                   onClick={() => onCommission(current.t)}
                   className="group inline-flex items-center gap-3 rounded-full bg-forest px-6 py-3.5 font-head text-sm font-medium text-canvas transition hover:bg-mondrian-red focus-ring"
                 >
-                  Commander
+                  Réserver mon appel gratuit
                   <span className="grid h-6 w-6 rounded-full bg-canvas/15 transition group-hover:bg-canvas/25">→</span>
                 </button>
                 <button
@@ -143,14 +143,14 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
           className="mt-16 md:mt-20 grid md:grid-cols-12 gap-6 items-center border-t-2 border-forest pt-10"
         >
           <p className="md:col-span-7 font-display text-2xl md:text-3xl leading-tight text-balance">
-            Vous savez déjà ce dont vous avez besoin ? <span className="font-display-wonk italic text-teal">Démarrez une commission.</span>
+            En 30 minutes, nous vous dirons exactement où votre activité perd de l'argent. <span className="font-display-wonk italic text-teal">Gratuitement.</span>
           </p>
           <div className="md:col-span-5 md:text-right">
             <button
               onClick={() => onCommission()}
               className="group inline-flex items-center gap-3 rounded-full bg-forest px-7 py-4 font-head text-sm font-medium text-canvas hover:bg-mondrian-red transition focus-ring"
             >
-              Ouvrir le formulaire d'intake
+              Réserver mon appel découverte
               <span className="grid place-items-center h-7 w-7 rounded-full bg-canvas/15 transition group-hover:bg-canvas/25">→</span>
             </button>
           </div>
