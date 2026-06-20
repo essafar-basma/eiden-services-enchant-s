@@ -143,14 +143,14 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
           className="mt-16 md:mt-20 grid md:grid-cols-12 gap-6 items-center border-t-2 border-forest pt-10"
         >
           <p className="md:col-span-7 font-display text-2xl md:text-3xl leading-tight text-balance">
-            Vous savez déjà ce dont vous avez besoin ? <span className="font-display-wonk italic text-teal">Démarrez une commission.</span>
+            En 30 minutes, nous vous dirons exactement où votre activité perd de l'argent. <span className="font-display-wonk italic text-teal">Gratuitement.</span>
           </p>
           <div className="md:col-span-5 md:text-right">
             <button
               onClick={() => onCommission()}
               className="group inline-flex items-center gap-3 rounded-full bg-forest px-7 py-4 font-head text-sm font-medium text-canvas hover:bg-mondrian-red transition focus-ring"
             >
-              Ouvrir le formulaire d'intake
+              Réserver mon appel découverte
               <span className="grid place-items-center h-7 w-7 rounded-full bg-canvas/15 transition group-hover:bg-canvas/25">→</span>
             </button>
           </div>
