@@ -9,9 +9,9 @@ import logoLunjaVillage from "@/assets/lunja-village.png";
 import logoMedicalBay from "@/assets/medical-bay.png";
 
 const TESTIMONIALS = [
-  { q: "EIDEN n'a pas livré un deck — ils ont livré un système qui tourne sans eux. Six mois plus tard, l'opération scale toujours sur la même architecture.", n: "Yassine B.", r: "CEO · Hospitalité, Agadir", c: "bg-forest text-canvas", },
-  { q: "Personne n'a regardé notre business avec cette rigueur. Le diagnostic seul a payé l'engagement entier.", n: "Sophia M.", r: "Directrice générale · DMC", c: "bg-mondrian-yellow text-forest", },
-  { q: "Marque, marketing et ops alignés sur une seule logique. Coût d'acquisition −38 % en un trimestre.", n: "Karim L.", r: "Fondateur · E-commerce", c: "bg-canvas text-forest border border-forest/15", },
+  { q: "EIDEN n'a pas livré une stratégie ; ils ont reconstruit le système qui fait tourner nos opérations. Six mois plus tard, nous gérons 35 % de charge en plus avec la même équipe. Ce n'est pas du conseil. C'est de l'architecture.", n: "Amine El Idrissi", r: "Directeur Général", c: "bg-forest text-canvas", },
+  { q: "Personne n'a regardé notre activité avec cette rigueur. Le diagnostic seul a payé l'engagement entier.", n: "Sophia M.", r: "Directrice générale · DMC", c: "bg-mondrian-yellow text-forest", },
+  { q: "Marque, marketing et opérations alignés sur une seule logique. Coût d'acquisition −38 % en un trimestre.", n: "Karim L.", r: "Fondateur · E-commerce", c: "bg-canvas text-forest border border-forest/15", },
 ];
 
 const BRAND_LOGOS = [
