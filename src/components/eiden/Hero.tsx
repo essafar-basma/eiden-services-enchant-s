@@ -55,11 +55,7 @@ export function Hero({ onCommission }: { onCommission: () => void }) {
             <img src={logo} alt="Eiden Group" className="h-7 md:h-8 w-auto" />
           </div>
           <div className="font-mono text-[10px] md:text-xs text-forest/70 text-right">
-<<<<<<< Updated upstream
             <div>EIDEN — ARCHITECTURE D'ENTREPRISE</div>
-=======
-            <div>EIDEN   ARCHITECTURE D'ENTREPRISE</div>
->>>>>>> Stashed changes
             <div className="mt-1 flex items-center justify-end gap-1.5">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-mondrian-red opacity-60 animate-ping" />
@@ -87,11 +83,7 @@ export function Hero({ onCommission }: { onCommission: () => void }) {
         {/* deck row */}
         <div className="mt-auto pt-16 grid md:grid-cols-12 gap-8 items-end">
           <motion.p initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay: 1.4, duration:0.8 }} className="md:col-span-5 font-display text-xl md:text-2xl leading-[1.35] text-gold">
-<<<<<<< Updated upstream
             Réservez un appel gratuit de 30 minutes avec EIDEN — le premier cabinet d'Architecture d'Entreprise au Maroc — et voyez exactement où la vôtre se fissure.
-=======
-            Réservez un appel gratuit de 30 minutes avec EIDEN   le premier cabinet d'Architecture d'Entreprise au Maroc   et voyez exactement où la vôtre se fissure.
->>>>>>> Stashed changes
           </motion.p>
 
           <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay: 1.55, duration:0.8 }} className="md:col-span-4 md:col-start-7 flex flex-col gap-3">
