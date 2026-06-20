@@ -107,7 +107,7 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
               </p>
 
               <ul className="mt-8 space-y-2.5">
-                {["Appel découverte, sans deck", "Proposition à périmètre fixe sous 5 jours", "Points hebdomadaires éditoriaux"].map((b) => (
+                {["Appel découverte de 30 min, sans deck", "Réponse personnelle d'un associé sous 24 h", "Diagnostic clair — que vous nous engagiez ou non"].map((b) => (
                   <li key={b} className="flex items-start gap-3 text-sm text-forest/70">
                     <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-gold" />
                     {b}
@@ -120,7 +120,7 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
                   onClick={() => onCommission(current.t)}
                   className="group inline-flex items-center gap-3 rounded-full bg-forest px-6 py-3.5 font-head text-sm font-medium text-canvas transition hover:bg-mondrian-red focus-ring"
                 >
-                  Commander
+                  Réserver mon appel gratuit
                   <span className="grid h-6 w-6 rounded-full bg-canvas/15 transition group-hover:bg-canvas/25">→</span>
                 </button>
                 <button
