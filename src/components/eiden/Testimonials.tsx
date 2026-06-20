@@ -44,7 +44,7 @@ export function Testimonials({ onCommission }: { onCommission: () => void }) {
           <div className="md:col-span-5">
             <div className="font-mono text-[10px] text-gold mb-4">SECTION 03 · TÉMOIGNAGES</div>
             <h2 className="font-display font-light text-[clamp(2.25rem,5.5vw,5rem)] leading-[0.95] tracking-[-0.03em] text-balance">
-              Les fondateurs qui nous ont fait <span className="font-display-wonk italic text-gold">confiance</span>
+              Les fondateurs qui ont reconstruit leur structure avec <span className="font-display-wonk italic text-gold">EIDEN</span>
               <span className="text-mondrian-red">.</span>
             </h2>
           </div>
