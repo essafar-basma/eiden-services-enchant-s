@@ -35,11 +35,11 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
             <div className="mt-1">SERVICES — 08</div>
           </div>
           <h2 className="md:col-span-6 font-display font-light text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.92] tracking-[-0.03em] text-balance">
-            Ce que nous <span className="font-display-wonk italic text-teal">architecturons</span>
+            Là où votre activité <span className="font-display-wonk italic text-teal">se fissure</span>
             <span className="text-mondrian-red">.</span>
           </h2>
           <p className="md:col-span-3 font-display text-base md:text-lg text-forest/70 leading-snug text-pretty self-end">
-            Huit engagements distincts. Chacun conçu comme sa propre architecture, tous reliés par la même logique.
+            Huit disciplines. Une seule architecture. Chaque engagement conçu pour fermer une fuite précise — et tenir dans le temps.
           </p>
         </div>
 
