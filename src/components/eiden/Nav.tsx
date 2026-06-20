@@ -19,7 +19,7 @@ export function Nav({ onCommission }: { onCommission: () => void }) {
           </span>
           <div className="hidden sm:flex flex-col leading-none">
             <span className="font-display text-lg text-forest tracking-tight">EIDEN<span className="text-mondrian-red">.</span></span>
-            <span className="font-mono text-[9px] text-forest/60 mt-0.5">SERVICES — 2026</span>
+            <span className="font-mono text-[9px] text-forest/60 mt-0.5">SERVICES   2026</span>
           </div>
         </a>
 

@@ -83,7 +83,11 @@ export function Contact({ onCommission }: { onCommission: () => void }) {
             </p>
 
             <ul className="mt-8 space-y-2 text-sm text-forest/70">
+<<<<<<< Updated upstream
               {["Vous remplissez un brief court (2 min)","Un associé vous répond sous 24 h","Vous repartez avec une carte claire des fuites — que vous nous engagiez ou non"].map((s, i) => (
+=======
+              {["Vous remplissez un brief court (2 min)","Un associé vous répond sous 24 h","Vous repartez avec une carte claire des fuites   que vous nous engagiez ou non"].map((s, i) => (
+>>>>>>> Stashed changes
                 <li key={s} className="flex items-center gap-3">
                   <span className="grid place-items-center h-5 w-5 rounded-full bg-forest text-canvas font-mono text-[10px]">{i+1}</span>
                   {s}

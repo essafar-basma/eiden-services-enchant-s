@@ -31,7 +31,7 @@ export function NavBottom({ onCommission }: { onCommission: () => void }) {
                 EIDEN<span className="text-mondrian-red">.</span>
               </span>
               <span className="font-mono text-[9px] text-forest/60 mt-0.5">
-                SERVICES — 2026
+                SERVICES   2026
               </span>
             </div>
           </a>

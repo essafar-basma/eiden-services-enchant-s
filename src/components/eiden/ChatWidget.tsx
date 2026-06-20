@@ -18,20 +18,20 @@ function reply(q: string): string {
   if (t.includes("temps") || t.includes("durée") || t.includes("delai") || t.includes("délai"))
     return "Un audit dure 10 à 15 jours ouvrables. Une architecture complète : 6 à 12 semaines selon le périmètre.";
   if (t.includes("international") || t.includes("étranger") || t.includes("canada") || t.includes("europe"))
-    return "Oui — bureaux à Casablanca, Agadir et Montréal. Nous accompagnons des clients sur trois continents.";
+    return "Oui   bureaux à Casablanca, Agadir et Montréal. Nous accompagnons des clients sur trois continents.";
   if (t.includes("commission") || t.includes("démarrer") || t.includes("commencer") || t.includes("comment"))
     return "Cliquez sur « Démarrer une commission » en haut, ou utilisez le formulaire en bas de page. Réponse personnelle sous 24h.";
   if (t.includes("merci")) return "Avec plaisir. Je reste disponible.";
   if (t.includes("bonjour") || t.includes("salut") || t.includes("hello"))
-    return "Bonjour. Je suis l'assistant EIDEN — posez-moi vos questions sur nos services, notre méthode, ou démarrez une commission.";
-  return "Bonne question. Pour une réponse précise, ouvrez une commission ou écrivez à contact@eiden-group.com — un associé vous répond sous 24h.";
+    return "Bonjour. Je suis l'assistant EIDEN   posez-moi vos questions sur nos services, notre méthode, ou démarrez une commission.";
+  return "Bonne question. Pour une réponse précise, ouvrez une commission ou écrivez à contact@eiden-group.com   un associé vous répond sous 24h.";
 }
 
 export function ChatWidget({ onCommission }: { onCommission: () => void }) {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [msgs, setMsgs] = useState<Msg[]>([
-    { from: "bot", text: "Bonjour 👋 — je suis l'assistant EIDEN. Que puis-je clarifier sur nos services ?" },
+    { from: "bot", text: "Bonjour 👋   je suis l'assistant EIDEN. Que puis-je clarifier sur nos services ?" },
   ]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -84,7 +84,7 @@ export function ChatWidget({ onCommission }: { onCommission: () => void }) {
               <div className="flex items-center gap-3">
                 <span className="grid place-items-center h-9 w-9 rounded-full bg-gold text-forest font-display font-semibold">E</span>
                 <div>
-                  <div className="font-head text-sm font-semibold">EIDEN — Assistant</div>
+                  <div className="font-head text-sm font-semibold">EIDEN   Assistant</div>
                   <div className="font-mono text-[10px] text-canvas/60 flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-teal-lt animate-pulse" /> en ligne
                   </div>

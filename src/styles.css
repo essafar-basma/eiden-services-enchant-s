@@ -165,7 +165,7 @@
   .focus-ring { transition: box-shadow .2s ease; }
   .focus-ring:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in oklab, var(--teal) 35%, transparent); }
 
-  /* Side video scenes — looping CSS painterly animation */
+  /* Side video scenes   looping CSS painterly animation */
   .scene { position: absolute; inset: 0; opacity: 0; animation: scene-cycle 24s infinite; }
   .scene-1 { animation-delay: 0s; }
   .scene-2 { animation-delay: 6s; }

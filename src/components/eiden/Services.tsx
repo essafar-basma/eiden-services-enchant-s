@@ -17,7 +17,7 @@ const SERVICES = [
   { n: "04", t: "Génération de Leads & Achat Média", d: "Funnels mesurés, créatifs testés, campagnes qui remplissent votre pipeline avec des leads que votre commerce peut signer.", img: svcLeads },
   { n: "05", t: "Référencement Local & Digital", d: "Présence locale qui convertit, SEO technique et de contenu pour devenir l'évidence dans votre catégorie.", img: svcSeo },
   { n: "06", t: "CRM · Gestion de la Relation Client", d: "Architecture CRM, séquences, automations et reporting pour transformer chaque conversation en revenu prévisible.", img: svcCrm },
-  { n: "07", t: "Branding & Positionnement de Marque", d: "Identité visuelle et verbale. Pas un logo — une marque qui se reconnaît avant même d'être lue.",  img: svcBranding },
+  { n: "07", t: "Branding & Positionnement de Marque", d: "Identité visuelle et verbale. Pas un logo   une marque qui se reconnaît avant même d'être lue.",  img: svcBranding },
   { n: "08", t: "Développement Web", d: "Sites éditoriaux rapides, plateformes sur-mesure, expériences qui chargent en moins d'une seconde et convertissent.", img: svcWeb },
 ];
 
@@ -28,22 +28,26 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
   return (
     <section id="services" className="relative bg-canvas py-10 overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-        {/* Editorial header — Swiss split */}
+        {/* Editorial header   Swiss split */}
         <div className="grid md:grid-cols-12 gap-8 mb-10 pb-10 border-b-2 border-forest">
           <div className="md:col-span-3 font-mono text-[10px] text-forest/70">
             <div>SECTION 02</div>
-            <div className="mt-1">SERVICES — 08</div>
+            <div className="mt-1">SERVICES   08</div>
           </div>
           <h2 className="md:col-span-6 font-display font-light text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.92] tracking-[-0.03em] text-balance">
             Là où votre activité <span className="font-display-wonk italic text-teal">se fissure</span>
             <span className="text-mondrian-red">.</span>
           </h2>
           <p className="md:col-span-3 font-display text-base md:text-lg text-forest/70 leading-snug text-pretty self-end">
+<<<<<<< Updated upstream
             Huit disciplines. Une seule architecture. Chaque engagement conçu pour fermer une fuite précise — et tenir dans le temps.
+=======
+            Huit disciplines. Une seule architecture. Chaque engagement conçu pour fermer une fuite précise   et tenir dans le temps.
+>>>>>>> Stashed changes
           </p>
         </div>
 
-        {/* Tabs strip — horizontally scrollable pills */}
+        {/* Tabs strip   horizontally scrollable pills */}
         <div role="tablist" aria-label="Services" className="-mx-5 md:mx-0 mb-10">
           <div className="flex gap-2 overflow-x-auto px-5 md:px-0 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {SERVICES.map((s, i) => {
@@ -77,7 +81,7 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
           </div>
         </div>
 
-        {/* Tab content — plate image + copy */}
+        {/* Tab content   plate image + copy */}
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
@@ -107,7 +111,11 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
               </p>
 
               <ul className="mt-8 space-y-2.5">
+<<<<<<< Updated upstream
                 {["Appel découverte de 30 min, sans deck", "Réponse personnelle d'un associé sous 24 h", "Diagnostic clair — que vous nous engagiez ou non"].map((b) => (
+=======
+                {["Appel découverte de 30 min, sans deck", "Réponse personnelle d'un associé sous 24 h", "Diagnostic clair   que vous nous engagiez ou non"].map((b) => (
+>>>>>>> Stashed changes
                   <li key={b} className="flex items-start gap-3 text-sm text-forest/70">
                     <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-gold" />
                     {b}

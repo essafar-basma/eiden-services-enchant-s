@@ -65,7 +65,7 @@ export function CommissionModal({
     (step === 2 && form.name && form.email && form.brief);
 
   const submit = () => {
-    const subject = encodeURIComponent(`Commission — ${form.name}${form.company ? " · " + form.company : ""}`);
+    const subject = encodeURIComponent(`Commission   ${form.name}${form.company ? " · " + form.company : ""}`);
     const body = encodeURIComponent(
       `Services: ${form.services.join(", ")}\nBudget: ${form.budget}\nTimeline: ${form.timeline}\n\nNom: ${form.name}\nEmail: ${form.email}\nEntreprise: ${form.company}\n\nBrief:\n${form.brief}`
     );
@@ -96,7 +96,7 @@ export function CommissionModal({
             transition={{ duration: 0.45, ease: [0.22,1,0.36,1] }}
             className="relative z-10 w-full max-w-6xl my-auto grid md:grid-cols-12 rounded-none md:rounded-3xl overflow-hidden glass shadow-2xl"
           >
-            {/* SIDE — animated scenes */}
+            {/* SIDE   animated scenes */}
             <div className="relative md:col-span-5 min-h-[180px] md:min-h-[640px] bg-forest text-canvas overflow-hidden">
               <SceneVideo />
               <div className="relative z-10 h-full flex flex-col justify-between p-8 md:p-10">
@@ -126,7 +126,7 @@ export function CommissionModal({
               </div>
             </div>
 
-            {/* MAIN — form */}
+            {/* MAIN   form */}
             <div className="relative md:col-span-7 bg-canvas/95 p-6 md:p-10 max-h-[100vh] md:max-h-[640px] overflow-y-auto">
               <div className="flex items-center justify-between mb-8">
                 <Stepper step={step} />
@@ -321,7 +321,7 @@ function Stepper({ step }: { step: number }) {
 function SceneVideo() {
   return (
     <div className="absolute inset-0">
-      {/* Scene 1 — sketching */}
+      {/* Scene 1   sketching */}
       <div className="scene scene-1 bg-forest-md">
         <div className="absolute inset-0 paper-grid opacity-20" />
         <svg viewBox="0 0 400 600" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
@@ -333,7 +333,7 @@ function SceneVideo() {
         </svg>
       </div>
 
-      {/* Scene 2 — print proofs */}
+      {/* Scene 2   print proofs */}
       <div className="scene scene-2 bg-canvas/95">
         <div className="absolute inset-8 grid grid-cols-3 grid-rows-4 gap-2">
           {Array.from({ length: 12 }).map((_, i) => (
@@ -350,7 +350,7 @@ function SceneVideo() {
         <div className="absolute bottom-6 left-8 font-mono text-[10px] text-forest/70">EPREUVES · 12 / 24</div>
       </div>
 
-      {/* Scene 3 — color swatches */}
+      {/* Scene 3   color swatches */}
       <div className="scene scene-3 bg-beige">
         <div className="absolute inset-0 flex flex-col">
           {["bg-forest","bg-teal","bg-gold","bg-mondrian-red","bg-mondrian-blue"].map((c, i) => (
@@ -367,7 +367,7 @@ function SceneVideo() {
         <div className="absolute bottom-6 left-8 font-mono text-[10px] text-canvas mix-blend-difference">PALETTE · 05</div>
       </div>
 
-      {/* Scene 4 — tabletop */}
+      {/* Scene 4   tabletop */}
       <div className="scene scene-4 bg-cream">
         <div className="absolute inset-0 paper-grid opacity-30" />
         <motion.div

@@ -18,7 +18,7 @@ export function About({ onCommission }: { onCommission: () => void }) {
         <div className="grid md:grid-cols-12 gap-10 md:gap-16">
           <div className="md:col-span-3 font-mono text-[10px] text-forest/70">
             <div>SECTION 01</div>
-            <div className="mt-1">À PROPOS — EIDEN</div>
+            <div className="mt-1">À PROPOS   EIDEN</div>
           </div>
 
           <motion.div
@@ -34,7 +34,7 @@ export function About({ onCommission }: { onCommission: () => void }) {
 
             <div className="mt-12 grid md:grid-cols-12 gap-10">
               <p className="md:col-span-7 font-display text-lg md:text-xl text-forest/80 leading-snug text-pretty">
-                Nous avons fondé EIDEN sur une conviction : les entreprises qui durent ne sont pas les plus bruyantes — ce sont les plus cohérentes. Avant de produire un livrable, nous concevons le système qui le porte. Marque, marché, modèle, opérations : tout se connecte.
+                Nous avons fondé EIDEN sur une conviction : les entreprises qui durent ne sont pas les plus bruyantes   ce sont les plus cohérentes. Avant de produire un livrable, nous concevons le système qui le porte. Marque, marché, modèle, opérations : tout se connecte.
               </p>
               <div className="md:col-span-5 space-y-4 border-l border-forest/15 pl-6">
                 <p className="text-forest/70 leading-relaxed text-sm">
