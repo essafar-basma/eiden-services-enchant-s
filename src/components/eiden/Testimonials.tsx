@@ -102,7 +102,7 @@ export function Testimonials({ onCommission }: { onCommission: () => void }) {
         {/* CTA */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="mt-20 text-center" >
           <button onClick={onCommission} className="group inline-flex items-center gap-3 rounded-full bg-gold text-forest px-7 py-4 font-head text-sm font-medium transition hover:bg-mondrian-red hover:text-canvas focus-ring">
-            Rejoindre cette liste
+            Réserver mon appel gratuit
             <span className="grid place-items-center h-7 w-7 rounded-full bg-forest/15 transition group-hover:bg-canvas/25">→</span>
           </button>
         </motion.div>
