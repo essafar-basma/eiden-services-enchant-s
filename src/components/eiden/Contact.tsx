@@ -15,7 +15,7 @@ export function Contact({ onCommission }: { onCommission: () => void }) {
             <div className="mt-1">CONTACT</div>
           </div>
           <h2 className="md:col-span-9 font-display font-light text-[clamp(2.5rem,6vw,6rem)] leading-[0.92] tracking-[-0.03em] text-balance">
-            Parlons de votre <span className="font-display-wonk italic text-gold">projet</span>
+            30 minutes pour voir où votre activité <span className="font-display-wonk italic text-gold">fuit</span>
             <span className="text-mondrian-red">.</span>
           </h2>
         </div>
