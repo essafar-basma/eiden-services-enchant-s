@@ -16,8 +16,8 @@ export function Hero({ onCommission }: { onCommission: () => void }) {
       {/* color blocks */}
       <motion.div
         initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.1, ease: [0.22,1,0.36,1], delay: 0.2 }}
-        style={{ originY: 0 }}
-        className="absolute top-0 right-0 h-[32vh] w-[18vw] bg-mondrian-yellow md:height[42vh]"
+        style={{ originY: 0, background: "#CFC292" }}
+        className="absolute top-0 right-0 h-[32vh] w-[18vw] md:height[42vh]"
       />
       <motion.div
         initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.1, ease: [0.22,1,0.36,1], delay: 0.5 }}
@@ -26,8 +26,8 @@ export function Hero({ onCommission }: { onCommission: () => void }) {
       />
       <motion.div
         initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.9, ease: [0.22,1,0.36,1], delay: 0.8 }}
-        style={{ originX: 1 }}
-        className="absolute bottom-0 right-0 h-[14vh] w-[22vw] bg-mondrian-red md:block"
+        style={{ originX: 1, background: "#0E7A73" }}
+        className="absolute bottom-0 right-0 h-[14vh] w-[22vw] md:block"
       />
 
       {/* rules (Mondrian black lines) */}

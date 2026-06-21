@@ -1,10 +1,14 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import icon from "@/assets/logo-1.png";
+import { Phone } from "lucide-react";
+import logo from "@/assets/logo-1.png";
 
-export function Nav({ onCommission }: { onCommission: () => void }) {
+const PHONE = "+212 7 77 77 74 28";
+const PHONE_HREF = "tel:+212777777428";
+
+export function Nav() {
   const { scrollY } = useScroll();
-  const bg = useTransform(scrollY, [0, 80], ["rgba(254,253,251,0)", "rgba(254,253,251,0.85)"]);
-  const border = useTransform(scrollY, [0, 80], ["rgba(18,38,32,0)", "rgba(18,38,32,0.08)"]);
+  const bg = useTransform(scrollY, [0, 80], ["rgba(254,253,251,0)", "rgba(254,253,251,0.9)"]);
+  const border = useTransform(scrollY, [0, 80], ["rgba(18,38,32,0)", "rgba(18,38,32,0.1)"]);
 
   return (
     <motion.header
@@ -12,31 +16,20 @@ export function Nav({ onCommission }: { onCommission: () => void }) {
       style={{ backgroundColor: bg, borderColor: border }}
       className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b"
     >
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-4 flex items-center justify-between">
-        <a href="#hero" className="flex items-center gap-2.5 group">
-          <span className="grid place-items-center h-9 w-9 rounded-md bg-forest">
-            <img src={icon} alt="" className="h-6 w-6" style={{ filter: "brightness(0) invert(0.93) sepia(0.3) saturate(2)" }} />
-          </span>
-          <div className="hidden sm:flex flex-col leading-none">
-            <span className="font-display text-lg text-forest tracking-tight">EIDEN<span className="text-mondrian-red">.</span></span>
-            <span className="font-mono text-[9px] text-forest/60 mt-0.5">SERVICES   2026</span>
-          </div>
+      <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-3.5 flex items-center justify-between gap-4">
+        <a href="#hero" className="flex items-center gap-2.5 min-w-0">
+          <img src={logo} alt="Eiden Group" className="h-7 md:h-8 w-auto shrink-0" />
         </a>
 
-        <nav className="hidden md:flex items-center gap-8 font-label text-[10px] text-forest/70">
-          <a href="#about" className="hover:text-forest transition">À propos</a>
-          <a href="#services" className="hover:text-forest transition">Services</a>
-          <a href="#testimonials" className="hover:text-forest transition">Témoignages</a>
-          <a href="#contact" className="hover:text-forest transition">Contact</a>
-        </nav>
-
-        <button
-          onClick={onCommission}
-          className="group inline-flex items-center gap-2.5 rounded-full bg-forest text-canvas px-5 py-2.5 font-head text-xs font-medium hover:bg-mondrian-red transition focus-ring"
+        <a
+          href={PHONE_HREF}
+          className="group inline-flex items-center gap-2.5 rounded-full bg-forest text-canvas px-4 md:px-5 py-2.5 font-mono text-[11px] md:text-xs hover:bg-teal transition focus-ring"
+          aria-label={`Appeler ${PHONE}`}
         >
-          <span className="hidden sm:inline">Commander</span>
-          <span>→</span>
-        </button>
+          <Phone className="h-3.5 w-3.5" />
+          <span className="hidden sm:inline tracking-wider">{PHONE}</span>
+          <span className="sm:hidden">Appeler</span>
+        </a>
       </div>
     </motion.header>
   );
