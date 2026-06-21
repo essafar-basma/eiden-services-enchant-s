@@ -29,7 +29,7 @@ export function Reframe({ onCommission }: { onCommission: () => void }) {
 
         <div className="grid md:grid-cols-12 gap-10 items-start">
           <p className="md:col-span-7 font-display text-lg md:text-2xl leading-snug text-forest/80 text-pretty">
-            La plupart des entreprises n'ont pas besoin d'une nouvelle stratégie. Elles ont besoin d'une architecture qui tient — un cadre où la stratégie peut enfin produire. EIDEN conçoit ce cadre.
+            La plupart des entreprises n'ont pas besoin d'une nouvelle stratégie. Elles ont besoin d'une architecture qui tient    un cadre où la stratégie peut enfin produire. EIDEN conçoit ce cadre.
           </p>
 
           <ul className="md:col-span-5 grid grid-cols-2 gap-3">

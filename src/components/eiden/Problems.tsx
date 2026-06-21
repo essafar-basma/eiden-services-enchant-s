@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { TrendingDown, Users, Workflow, Compass } from "lucide-react";
 
 const ITEMS = [
-  { I: TrendingDown, t: "Vos ventes plafonnent", d: "Vous poussez plus fort sur le marketing — le chiffre, lui, ne suit plus." },
+  { I: TrendingDown, t: "Vos ventes plafonnent", d: "Vous poussez plus fort sur le marketing    le chiffre, lui, ne suit plus." },
   { I: Users, t: "Votre équipe s'épuise", d: "Tout passe par vous. Chaque décision, chaque urgence, chaque arbitrage." },
   { I: Workflow, t: "Vos process fuient", d: "Les leads se perdent, les relances s'oublient, les opérations improvisent." },
   { I: Compass, t: "Vous pilotez à l'aveugle", d: "Pas de tableau de bord. Pas de cap. Les décisions reposent sur l'intuition." },
@@ -16,7 +16,7 @@ export function Problems({ onCommission }: { onCommission: () => void }) {
         <div className="grid md:grid-cols-12 gap-8 mb-12 pb-8 border-b-2 border-forest">
           <div className="md:col-span-3 font-mono text-[10px] text-forest/70">
             <div>SECTION 01</div>
-            <div className="mt-1">SYMPTÔMES — 04</div>
+            <div className="mt-1">SYMPTÔMES    04</div>
           </div>
           <h2 className="md:col-span-9 font-display font-light text-[clamp(2rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.03em] text-balance">
             Reconnaissez-vous l'un de ces <span className="font-display-wonk italic text-teal">signaux</span>
@@ -44,7 +44,7 @@ export function Problems({ onCommission }: { onCommission: () => void }) {
 
         <div className="mt-12 text-center">
           <button onClick={onCommission} className="inline-flex items-center gap-3 rounded-full bg-forest text-canvas px-7 py-4 font-head text-sm font-medium hover:bg-teal transition focus-ring">
-            Diagnostiquer mon activité — gratuit
+            Diagnostiquer mon activité    gratuit
             <span className="grid place-items-center h-7 w-7 rounded-full bg-canvas/15">→</span>
           </button>
         </div>

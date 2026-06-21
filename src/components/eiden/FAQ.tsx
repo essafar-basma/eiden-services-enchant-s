@@ -5,7 +5,7 @@ import { Plus, Minus } from "lucide-react";
 const ITEMS = [
   { q: "C'est vraiment gratuit ?", a: "Oui. 30 minutes avec un associé EIDEN, sans aucun engagement. Nous croyons qu'un diagnostic clair vaut mieux qu'un pitch commercial." },
   { q: "Vais-je avoir affaire à un commercial ?", a: "Non. Chaque appel est mené par un associé du cabinet. Pas de SDR, pas de relance pression, pas de séquence commerciale." },
-  { q: "Pour quelle taille d'entreprise ?", a: "Nous travaillons avec des structures de 5 à 250 collaborateurs — TPE en croissance, PME et ETI marocaines ou basées au Maghreb." },
+  { q: "Pour quelle taille d'entreprise ?", a: "Nous travaillons avec des structures de 5 à 250 collaborateurs    TPE en croissance, PME et ETI marocaines ou basées au Maghreb." },
   { q: "Quand aurai-je une réponse ?", a: "Sous 24 heures ouvrées. Chaque brief est lu personnellement par un associé qui vous propose un créneau adapté." },
   { q: "Travaillez-vous avec mon secteur ?", a: "Nous intervenons en transversal : hôtellerie, restauration, retail, services, e-commerce, santé, éducation, B2B. Le cadre EIDEN s'adapte à votre contexte." },
 ];
@@ -27,7 +27,7 @@ export function FAQ({ onCommission }: { onCommission: () => void }) {
   const [open, setOpen] = useState<number[]>([]);
 
   useEffect(() => {
-    setOpen(isDesktop ? ITEMS.map((_, i) => i) : []);
+    setOpen(isDesktop ? [0] : []);
   }, [isDesktop]);
 
   const toggle = (i: number) =>
@@ -39,7 +39,7 @@ export function FAQ({ onCommission }: { onCommission: () => void }) {
         <div className="grid md:grid-cols-12 gap-8 mb-12 pb-8 border-b-2 border-forest">
           <div className="md:col-span-3 font-mono text-[10px] text-forest/70">
             <div>SECTION 05</div>
-            <div className="mt-1">FAQ — 05</div>
+            <div className="mt-1">FAQ    05</div>
           </div>
           <h2 className="md:col-span-9 font-display font-light text-[clamp(2rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.03em] text-balance">
             Les questions qu'on nous pose <span className="font-display-wonk italic text-teal">avant l'appel</span>

@@ -59,7 +59,7 @@ function Index() {
             <Contact onCommission={() => start()} />
             <Footer />
             <CommissionModal open={open} onClose={() => setOpen(false)} initialService={service} />
-            <ChatWidget onCommission={() => start()} />
+            {/* <ChatWidget onCommission={() => start()} /> */}
             <MobileStickyCTA onCommission={() => start()} />
           </motion.main>
         )}
