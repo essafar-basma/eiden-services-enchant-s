@@ -24,7 +24,7 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
         <div className="grid md:grid-cols-12 gap-8 mb-10 pb-10 border-b-2 border-forest">
           <div className="md:col-span-3 font-mono text-[10px] text-forest/70">
             <div>SECTION 02</div>
-            <div className="mt-1">SERVICES   08</div>
+            <div className="mt-1">SERVICES   04</div>
           </div>
           <h2 className="md:col-span-6 font-display font-light text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.92] tracking-[-0.03em] text-balance">
             Là où votre activité <span className="font-display-wonk italic text-teal">se fissure</span>
@@ -88,7 +88,7 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
             </div>
 
             <div className="flex flex-col">
-              <div className="font-label text-[11px] text-teal">Service {current.n} / 08</div>
+              <div className="font-label text-[11px] text-teal">Service {current.n} / 04</div>
 
               <h3 className="mt-4 font-display font-light text-3xl md:text-5xl leading-[1.03] tracking-tight text-balance">
                 {current.t}
