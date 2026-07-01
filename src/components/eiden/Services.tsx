@@ -1,24 +1,16 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-import svcAudit from "@/assets/audit-2.jpg";
-import svcArch from "@/assets/strategy-2.jpg";
-import svcOps from "@/assets/op-1.jpg";
-import svcLeads from "@/assets/lead-1.jpg";
-import svcSeo from "@/assets/seo-1.jpg";
-import svcCrm from "@/assets/crm-1.jpg";
-import svcBranding from "@/assets/branding-1.jpg";
-import svcWeb from "@/assets/web-2.jpg";
+import svcPhoto from "@/assets/service-photo-video.jpg";
+import svcMarketing from "@/assets/service-marketing.jpg";
+import svcConseil from "@/assets/service-conseil.jpg";
+import svcLogiciels from "@/assets/service-logiciels.jpg";
 
 const SERVICES = [
-  { n: "01", t: "Audit & Diagnostic", d: "Cartographie chirurgicale de votre opération. Nous identifions chaque fuite, chaque levier, chaque écart à fermer.", img: svcAudit },
-  { n: "02", t: "Architecture Stratégique", d: "Le cadre maître dans lequel chaque décision s'inscrit. Positionnement, feuille de route, modèle économique.",  img: svcArch },
-  { n: "03", t: "Optimisation Opérationnelle", d: "Nous éliminons les frictions, automatisons le répétitif et installons les systèmes qui scalent sans épuiser vos équipes.", img: svcOps },
-  { n: "04", t: "Génération de Leads & Achat Média", d: "Funnels mesurés, créatifs testés, campagnes qui remplissent votre pipeline avec des leads que votre commerce peut signer.", img: svcLeads },
-  { n: "05", t: "Référencement Local & Digital", d: "Présence locale qui convertit, SEO technique et de contenu pour devenir l'évidence dans votre catégorie.", img: svcSeo },
-  { n: "06", t: "CRM · Gestion de la Relation Client", d: "Architecture CRM, séquences, automations et reporting pour transformer chaque conversation en revenu prévisible.", img: svcCrm },
-  { n: "07", t: "Branding & Positionnement de Marque", d: "Identité visuelle et verbale. Pas un logo   une marque qui se reconnaît avant même d'être lue.",  img: svcBranding },
-  { n: "08", t: "Développement Web", d: "Sites éditoriaux rapides, plateformes sur-mesure, expériences qui chargent en moins d'une seconde et convertissent.", img: svcWeb },
+  { n: "01", t: "Photo & Vidéo", d: "Production visuelle éditoriale   photographie, films de marque, contenus sociaux calibrés pour convertir. L'image comme actif commercial, pas comme décoration.", img: svcPhoto },
+  { n: "02", t: "Marketing & Acquisition", d: "Funnels mesurés, campagnes multi-canal, achat média et créatifs testés. Nous remplissons votre pipeline avec des leads que votre commerce peut réellement signer.", img: svcMarketing },
+  { n: "03", t: "Conseil & Organisation", d: "Audit, architecture stratégique et mise en ordre opérationnelle. Nous transformons le désordre invisible en système clair, mesurable et duplicable.", img: svcConseil },
+  { n: "04", t: "Logiciels propriétaires", d: "Nos outils internes, disponibles en abonnement léger   CRM, tableaux de bord, automations métier. La technologie qui fait tourner nos clients, mise à votre service.", img: svcLogiciels },
 ];
 
 export function Services({ onCommission }: { onCommission: (service?: string) => void }) {
@@ -32,14 +24,14 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
         <div className="grid md:grid-cols-12 gap-8 mb-10 pb-10 border-b-2 border-forest">
           <div className="md:col-span-3 font-mono text-[10px] text-forest/70">
             <div>SECTION 02</div>
-            <div className="mt-1">SERVICES   08</div>
+            <div className="mt-1">SERVICES   04</div>
           </div>
           <h2 className="md:col-span-6 font-display font-light text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.92] tracking-[-0.03em] text-balance">
             Là où votre activité <span className="font-display-wonk italic text-teal">se fissure</span>
             <span className="text-mondrian-red">.</span>
           </h2>
           <p className="md:col-span-3 font-display text-base md:text-lg text-forest/70 leading-snug text-pretty self-end">
-            Huit disciplines. Une seule architecture. Chaque engagement conçu pour fermer une fuite précise   et tenir dans le temps.
+            Quatre disciplines. Une seule architecture. Chaque engagement conçu pour fermer une fuite précise   et tenir dans le temps.
           </p>
         </div>
 
@@ -96,7 +88,7 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
             </div>
 
             <div className="flex flex-col">
-              <div className="font-label text-[11px] text-teal">Service {current.n} / 08</div>
+              <div className="font-label text-[11px] text-teal">Service {current.n} / 04</div>
 
               <h3 className="mt-4 font-display font-light text-3xl md:text-5xl leading-[1.03] tracking-tight text-balance">
                 {current.t}
