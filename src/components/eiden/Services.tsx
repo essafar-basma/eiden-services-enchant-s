@@ -31,7 +31,7 @@ export function Services({ onCommission }: { onCommission: (service?: string) =>
             <span className="text-mondrian-red">.</span>
           </h2>
           <p className="md:col-span-3 font-display text-base md:text-lg text-forest/70 leading-snug text-pretty self-end">
-            Huit disciplines. Une seule architecture. Chaque engagement conçu pour fermer une fuite précise   et tenir dans le temps.
+            Quatre disciplines. Une seule architecture. Chaque engagement conçu pour fermer une fuite précise   et tenir dans le temps.
           </p>
         </div>
 
